@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 if(edt_password.getText().toString().equals(confirm_password.getText().toString()))
                 {
                     Toast.makeText(getApplicationContext(),"Access Granted",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this,login.class);
+                    Intent intent = new Intent(MainActivity.this,Login.class);
                     startActivity(intent);
                 }
                 else{
