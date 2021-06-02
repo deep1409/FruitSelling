@@ -20,8 +20,5 @@
 
     </style>
 
-    <style name="ToolbarBackarrow" parent="Theme.FruitSelling">
-        <item name="android:textColorSecondary">#fff </item>
 
-    </style>
 </resources>
