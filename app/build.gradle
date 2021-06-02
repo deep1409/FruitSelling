@@ -44,5 +44,11 @@ dependencies {
 
     //for image slider
     implementation 'com.github.smarteist:autoimageslider:1.1.1'
+    //for Navigation drawer
+    implementation 'com.yarolegovich:sliding-root-nav:1.1.1'
+    //implementation 'com.yarolegovich:sliding-root-nav:1.0.2'
+
+    //circular image view
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 }

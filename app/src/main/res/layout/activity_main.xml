@@ -8,7 +8,6 @@
     tools:context=".MainActivity"
     android:background="#B9F1DA">
 
-
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
