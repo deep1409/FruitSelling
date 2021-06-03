@@ -168,7 +168,8 @@
                 android:background="@color/light_brown"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tool_bar"></SearchView>
+                app:layout_constraintTop_toBottomOf="@+id/tool_bar">
+            </SearchView>
 
             <ImageView
                 android:id="@+id/imageView2"
