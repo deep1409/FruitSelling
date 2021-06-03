@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
             android:layout_marginHorizontal="15sp"
-            android:background="@drawable/btn_background"
+            android:background="#B9F1DA"
             android:elevation="25dp"
             android:text="GET STARTED"
             android:textAllCaps="false"
