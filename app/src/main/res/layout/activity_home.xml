@@ -22,18 +22,40 @@
             android:layout_height="match_parent"
             >
 
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/tool_bar"
                 android:layout_width="39dp"
                 android:layout_height="43dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:background="@drawable/option_menu"
                 android:minHeight="?attr/actionBarSize"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:subtitleTextColor="@color/teal_700"
                 app:theme="@style/ToolbarBackarrow" />
+
+            <!--
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tool_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:theme="@style/ToolbarBackarrow" />
+            -->
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="54dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/cart" />
+
 
             <TextView
                 android:id="@+id/textView"
@@ -60,17 +82,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="54dp"
-                android:layout_height="52dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="28dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/tool_bar"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/cart" />
+
 
             <TextView
                 android:id="@+id/fruit_lable"
@@ -151,14 +163,12 @@
                 android:id="@+id/searchView"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginRight="24dp"
+                android:layout_marginTop="20sp"
+                android:layout_marginHorizontal="20sp"
                 android:background="@color/light_brown"
-                app:layout_constraintTop_toBottomOf="@+id/tool_bar"
-                tools:layout_editor_absoluteX="0dp">
-
-            </SearchView>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tool_bar"></SearchView>
 
             <ImageView
                 android:id="@+id/imageView2"
