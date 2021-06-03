@@ -5,11 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 public class Item_description extends AppCompatActivity {
 
-    ImageView item_des_cart;
+    ImageView item_des_cart,item_img,back_arrow;
+    TextView item_name,item_price,item_total_price,item_quantity;
+    Button quan_plus,quan_minus;
+    Intent i;
+    int counter = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +26,63 @@ public class Item_description extends AppCompatActivity {
         setContentView(R.layout.activity_item_description);
 
         item_des_cart = findViewById(R.id.item_des_cart);
+        item_img = findViewById(R.id.item_des_img);
+        item_name = findViewById(R.id.item_des_name);
+        item_price = findViewById(R.id.item_des_price);
+        item_total_price = findViewById(R.id.item_des_total_price);
+        back_arrow = findViewById(R.id.item_des_back_arrow);
+        quan_plus = findViewById(R.id.item_des_quantity_plus);
+        quan_minus = findViewById(R.id.item_des_quantity_minus);
+        item_quantity = findViewById(R.id.textView9);
+
+        i = getIntent();
+        Picasso.get().load(i.getStringExtra("img")).into(item_img);
+        item_name.setText(i.getStringExtra("name"));
+        item_price.setText(i.getStringExtra("price")+" ₹/kg");
+        item_total_price.setText("₹ "+i.getStringExtra("price"));
+        item_quantity.setText(String.valueOf(counter));
+        Toast.makeText(this, "name : "+i.getStringExtra("name")+"\n"+"price :"+i.getStringExtra("price"), Toast.LENGTH_SHORT).show();
+
+        quan_plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (counter >= 9 || item_quantity.getText().toString().equals(10)){
+                    Toast.makeText(Item_description.this, "Sorry!, You can't buy more than 10.", Toast.LENGTH_SHORT).show();
+                    counter = 9;
+                    item_quantity.setText(String.valueOf(counter));
+                }
+                else {
+                    counter++;
+                    int total = Integer.valueOf(i.getStringExtra("price"));
+                    int grant_total = counter*total;
+                    String s = String.valueOf(grant_total);
+                    item_total_price.setText(s);
+                    item_quantity.setText(String.valueOf(counter));
+
+                }
+            }
+        });
+        quan_minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (counter <= 0 || item_quantity.getText().toString().equals(0)){
+                    Toast.makeText(Item_description.this, "Sorry!, You can't buy less than 1 item.", Toast.LENGTH_SHORT).show();
+                    counter = 1;
+                    item_quantity.setText(String.valueOf(counter));
+
+                }
+                else {
+                    counter--;
+                    int total = Integer.valueOf(i.getStringExtra("price"));
+                    int grant_total = counter*total;
+                    String s = String.valueOf(grant_total);
+                    item_total_price.setText(s);
+                    item_quantity.setText(String.valueOf(counter));
+                }
+            }
+        });
+
+
 
         item_des_cart.setOnClickListener(new View.OnClickListener() {
             @Override

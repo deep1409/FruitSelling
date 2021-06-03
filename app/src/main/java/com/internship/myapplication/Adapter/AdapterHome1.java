@@ -1,6 +1,7 @@
 package com.internship.myapplication.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.internship.myapplication.Item_description;
 import com.internship.myapplication.R;
 import com.internship.myapplication.pojo.pojoHome;
 import com.internship.myapplication.pojo.pojoHome1;
@@ -51,7 +53,11 @@ public class AdapterHome1 extends RecyclerView.Adapter<AdapterHome1.myViewHolder
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context.getApplicationContext(), ""+p.getItem_name(), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(context.getApplicationContext(), Item_description.class);
+                i.putExtra("img",p.getItem_url());
+                i.putExtra("name",p.getItem_name());
+                i.putExtra("price",p.getItem_price());
+                context.startActivity(i);
             }
         });
 

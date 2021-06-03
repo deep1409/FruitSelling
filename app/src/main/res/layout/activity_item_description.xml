@@ -131,7 +131,7 @@
         app:layout_constraintTop_toTopOf="@id/item_des_quantity_minus" />
 
     <TextView
-        android:id="@+id/total_price"
+        android:id="@+id/item_des_total_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="₹ 50"
