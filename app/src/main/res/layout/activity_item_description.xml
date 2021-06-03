@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Item_description"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".Item_description">
 
 
     <ImageView
         android:id="@+id/item_des_img"
         android:layout_width="200sp"
         android:layout_height="200sp"
+        android:layout_marginTop="145sp"
         android:scaleType="fitCenter"
-        android:layout_marginTop="45sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,43 +23,125 @@
         android:id="@+id/item_des_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:fontFamily="@font/product_sans_bold"
+        android:gravity="center"
         android:text="Orange"
         android:textColor="@color/black"
         android:textSize="25sp"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/item_des_img"
-        android:layout_marginTop="20sp"
-        android:fontFamily="@font/product_sans_bold"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_des_img" />
 
     <TextView
         android:id="@+id/item_des_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="50 ₹/kg"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/item_des_name"
         android:layout_marginTop="20sp"
         android:fontFamily="@font/product_sans_regular"
-        />
+        android:gravity="center"
+        android:text="(50 ₹/kg)"
+
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_des_name" />
 
     <ImageView
         android:id="@+id/item_des_back_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/item_des_img"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/item_des_order_now"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginBottom="20sp"
+        android:background="@drawable/add_to_cart_btn"
+        android:fontFamily="@font/product_sans_bold"
+        android:text="Order Now"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageView
+        android:id="@+id/item_des_cart"
+        android:layout_width="0sp"
+        android:layout_height="50sp"
+        android:background="@drawable/add_to_cart_btn"
+        android:padding="10sp"
+        android:layout_marginBottom="20sp"
+        android:layout_marginEnd="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:srcCompat="@drawable/baseline_add_shopping_cart_24" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.74" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/item_des_quantity_minus"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/quantity_plus_minus"
+        android:text="-"
+        android:layout_marginStart="20sp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/item_des_order_now"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/item_des_quantity_plus"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:background="@drawable/quantity_plus_minus"
+        android:text="+"
+        android:layout_marginStart="30sp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_des_quantity_minus"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="@+id/item_des_quantity_minus" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30sp"
+        android:fontFamily="@font/product_sans_regular"
+        android:text="01"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_des_quantity_minus"
+        app:layout_constraintStart_toEndOf="@id/item_des_quantity_minus"
+        app:layout_constraintTop_toTopOf="@id/item_des_quantity_minus" />
+
+    <TextView
+        android:id="@+id/total_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="₹ 50"
+        android:textSize="25sp"
+        android:layout_marginEnd="30sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/product_sans_regular"
+        app:layout_constraintBottom_toBottomOf="@+id/item_des_quantity_plus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/item_des_quantity_plus" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
