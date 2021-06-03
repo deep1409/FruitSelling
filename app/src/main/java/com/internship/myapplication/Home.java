@@ -9,10 +9,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -43,7 +45,7 @@ public class Home extends AppCompatActivity /*implements Drawer_Adapter.OnItemSe
     private Drawable[] screenIcons;
 
     public SlidingRootNav slidingRootNav;
-    ImageView img;
+    ImageView img,imageView;
 
     //RecycleView Initialization
     RecyclerView fruit_rv,veg_rv;
@@ -70,9 +72,17 @@ public class Home extends AppCompatActivity /*implements Drawer_Adapter.OnItemSe
         setSupportActionBar(toolbar);
 
 
-
+        imageView = findViewById(R.id.imageView);
         fruit_rv = findViewById(R.id.fruit_recycle_view);
         veg_rv = findViewById(R.id.veg_recycle_view);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent (Home.this,Cart.class);
+                startActivity(intent);
+            }
+        });
 
         slidingRootNav = (SlidingRootNav) new SlidingRootNavBuilder(this)
                 .withToolbarMenuToggle(toolbar)
@@ -109,7 +119,6 @@ public class Home extends AppCompatActivity /*implements Drawer_Adapter.OnItemSe
         fruit_list.add(new pojoHome("Orange","50","https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg"));
 
 
-
         adp1 = new AdapterHome(Home.this,fruit_list);
         fruit_rv.setAdapter(adp1);
 
@@ -139,6 +148,7 @@ public class Home extends AppCompatActivity /*implements Drawer_Adapter.OnItemSe
 
         adp2 = new AdapterHome1(Home.this,veg_list);
         veg_rv.setAdapter(adp2);
+
 
 //        screenIcons = loadScreenIcons();
 //        screenTitles = loadScreenTitles();

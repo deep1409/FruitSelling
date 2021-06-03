@@ -21,6 +21,7 @@ public class Navigation_Drawer extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Navigation_Drawer.this, Cart.class);
+                startActivity(intent);
             }
         });
 
