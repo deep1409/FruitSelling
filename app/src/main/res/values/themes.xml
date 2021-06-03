@@ -16,7 +16,9 @@
     </style>
 
     <style name="ToolbarBackarrow" parent="Theme.FruitSelling">
-        <item name="android:textColorSecondary">#fff </item>
+        <item name="android:textColorSecondary">#000000 </item>
+        <item name="android:homeAsUpIndicator">@drawable/nav_icon</item>
+
 
     </style>
 

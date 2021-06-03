@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toolbar;
@@ -51,14 +53,23 @@ public class Home extends AppCompatActivity /*implements Drawer_Adapter.OnItemSe
     AdapterHome adp1;
     AdapterHome1 adp2;
 
+    Window window;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_home);
 
+        if (Build.VERSION.SDK_INT>=21){
+            window = this.getWindow();
+            window.setStatusBarColor(this.getResources().getColor(R.color.white));
+        }
+
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
+
+
 
         fruit_rv = findViewById(R.id.fruit_recycle_view);
         veg_rv = findViewById(R.id.veg_recycle_view);
@@ -74,35 +85,57 @@ public class Home extends AppCompatActivity /*implements Drawer_Adapter.OnItemSe
         //.withContentClickableWhenMenuOpened(false)
         //.withSavedState(savedInstanceState)
 
-        fruit_rv.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,true));
+        fruit_rv.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.HORIZONTAL, false));
         fruit_rv.setHasFixedSize(true);
 
         fruit_list = new ArrayList<>();
-        fruit_list.add(new pojoHome("Test","Google","https://chromeunboxed.com/wp-content/uploads/2017/08/IDR_LOGIN_DEFAULT_USER_34@2x.png"));
-        fruit_list.add(new pojoHome("Lemon","50","https://freepngimg.com/thumb/lemon/5-2-lemon-png-hd.png"));
-        fruit_list.add(new pojoHome("Guava","50","https://lh3.googleusercontent.com/proxy/T3LITUEJdfW60ifSXqR3WOLzJgVMRtfXQxi1LsMdr22WgXFHAq5ZP98erXTNj4PIw03TH_NclqUYWD7gExa2uXULa_3JaSAWWNWUZ6C2aV57QsscMQHVfhbtVM01zB4"));
-        fruit_list.add(new pojoHome("Custard apple","50","https://www.pngarts.com/files/3/Sugar-Apple-PNG-Download-Image.png"));
-        fruit_list.add(new pojoHome("Watermalen","50","https://lh3.googleusercontent.com/proxy/Ri786hkch8YIJbsb94gEWX8E6Q7lbfLNjGXmTBjzgU7TtzrCk0quZdqGpz4lCnxFRsD1Iqrxe1fvFU4eFioMQiUJRTwV4c91oWZ3C4YaWZek6Pz8EQ3XzjK6-qWB4yUKWsFuk0iAYwXk"));
-        fruit_list.add(new pojoHome("Grapes","50","https://lh3.googleusercontent.com/proxy/3FWwsdgBSq0a_hUTIapyZ4aCTzA1BCrZf3DhpFjx3hwQtTATtFzV96yXmGhbNt-YwcLAN0pBJvzt0YJqgcnvvQEfshqBJjakO2rSAzPFHX8Czt551YTjrq6EeQ5eXQ"));
-        fruit_list.add(new pojoHome("Apple","50","https://freepngimg.com/thumb/apple/7-2-apple-fruit-png.png"));
-        fruit_list.add(new pojoHome("Blackberry","50","https://freepngimg.com/thumb/blackberry/6-2-blackberry-fruit-free-png-image.png"));
-        fruit_list.add(new pojoHome("Orange","50","https://pngimg.com/uploads/orange/orange_PNG780.png"));
+//        fruit_list.add(new pojoHome("Test","Google","https://chromeunboxed.com/wp-content/uploads/2017/08/IDR_LOGIN_DEFAULT_USER_34@2x.png"));
+//        fruit_list.add(new pojoHome("Lemon","50","https://freepngimg.com/thumb/lemon/5-2-lemon-png-hd.png"));
+//        fruit_list.add(new pojoHome("Guava","50","https://lh3.googleusercontent.com/proxy/T3LITUEJdfW60ifSXqR3WOLzJgVMRtfXQxi1LsMdr22WgXFHAq5ZP98erXTNj4PIw03TH_NclqUYWD7gExa2uXULa_3JaSAWWNWUZ6C2aV57QsscMQHVfhbtVM01zB4"));
+//        fruit_list.add(new pojoHome("Custard apple","50","https://www.pngarts.com/files/3/Sugar-Apple-PNG-Download-Image.png"));
+//        fruit_list.add(new pojoHome("Watermalen","50","https://lh3.googleusercontent.com/proxy/Ri786hkch8YIJbsb94gEWX8E6Q7lbfLNjGXmTBjzgU7TtzrCk0quZdqGpz4lCnxFRsD1Iqrxe1fvFU4eFioMQiUJRTwV4c91oWZ3C4YaWZek6Pz8EQ3XzjK6-qWB4yUKWsFuk0iAYwXk"));
+//        fruit_list.add(new pojoHome("Grapes","50","https://lh3.googleusercontent.com/proxy/3FWwsdgBSq0a_hUTIapyZ4aCTzA1BCrZf3DhpFjx3hwQtTATtFzV96yXmGhbNt-YwcLAN0pBJvzt0YJqgcnvvQEfshqBJjakO2rSAzPFHX8Czt551YTjrq6EeQ5eXQ"));
+//        fruit_list.add(new pojoHome("Apple","50","https://freepngimg.com/thumb/apple/7-2-apple-fruit-png.png"));
+//        fruit_list.add(new pojoHome("Blackberry","50","https://freepngimg.com/thumb/blackberry/6-2-blackberry-fruit-free-png-image.png"));
+//        fruit_list.add(new pojoHome("Orange","50","https://pngimg.com/uploads/orange/orange_PNG780.png"));
+
+        fruit_list.add(new pojoHome("Lemon","50","https://i.ndtvimg.com/mt/cooks/2014-11/lemon.jpg"));
+        fruit_list.add(new pojoHome("Guava","50","https://www.santosfood.com/wp-content/uploads/2020/01/4-4.jpg"));
+        fruit_list.add(new pojoHome("Custard apple","50","https://www.parasperfumers.com/upload/product_ecom/Custard-Apple-Seed-Oil.jpg"));
+        fruit_list.add(new pojoHome("Watermelon","50","https://cdn.britannica.com/99/143599-050-C3289491/Watermelon.jpg"));
+        fruit_list.add(new pojoHome("Grapes","50","https://www.aicr.org/wp-content/uploads/2020/01/shutterstock_533487490-640x462.jpg"));
+        fruit_list.add(new pojoHome("Apple","50","https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"));
+        fruit_list.add(new pojoHome("Blackberry","50","https://4.imimg.com/data4/HR/HD/MY-2312690/blackberry-fruit-500x500.jpg"));
+        fruit_list.add(new pojoHome("Orange","50","https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg"));
+
+
 
         adp1 = new AdapterHome(Home.this,fruit_list);
         fruit_rv.setAdapter(adp1);
 
-        veg_rv.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,true));
+        veg_rv.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.HORIZONTAL, false));
         veg_rv.setHasFixedSize(true);
 
         veg_list = new ArrayList<>();
-        veg_list.add(new pojoHome1("Carrot","50","https://lh3.googleusercontent.com/proxy/Tzd0uXOSdAQ7GXgCiPml3RmFkm7SxPeJxOOPcLOxa2Jn-xmocOAPZZKJvH0IFEqWiYfHxk5lpTfKqDhbLeJp9qNTCdv2GaMd"));
-        veg_list.add(new pojoHome1("Cauliflower","50"," https://pngimg.com/uploads/cauliflower/cauliflower_PNG12668.png"));
-        veg_list.add(new pojoHome1("Cucumber","50","  https://freepngimg.com/thumb/cucumber/8-2-cucumber-png-pic.png"));
-        veg_list.add(new pojoHome1("Brinjal","50"," https://lh3.googleusercontent.com/proxy/dS-1z_s1lXfnRqjJ2mt9F5-SKhhgm-DPUKg4QjIAmgDXoRABWEgwqKvQ1GYv-IQ8B76z4fkgTGAm-t_HtjBi8FUZnVUKMfLaBhmTFMkjTAVby3jhP0v7OlfEqsHB5kkG7qn0LYbseQ"));
-        veg_list.add(new pojoHome1("Potato","50"," https://pngimg.com/uploads/potato/potato_png2391.png"));
-        veg_list.add(new pojoHome1("Tomato","50"," https://purepng.com/public/uploads/large/purepng.com-red-tomatoestomatosalad-fruitred-fruittomatoes-1701527316509mirzn.png"));
-        veg_list.add(new pojoHome1("Peas","50"," https://i.pinimg.com/736x/9e/1f/5b/9e1f5b5a9d1d92191e410cc9a734ff50.jpg"));
-        veg_list.add(new pojoHome1("Green Chili","50"," https://pngimg.com/uploads/cauliflower/cauliflower_PNG12668.png"));
+//        veg_list.add(new pojoHome1("Carrot","50","https://lh3.googleusercontent.com/proxy/Tzd0uXOSdAQ7GXgCiPml3RmFkm7SxPeJxOOPcLOxa2Jn-xmocOAPZZKJvH0IFEqWiYfHxk5lpTfKqDhbLeJp9qNTCdv2GaMd"));
+//        veg_list.add(new pojoHome1("Cauliflower","50"," https://pngimg.com/uploads/cauliflower/cauliflower_PNG12668.png"));
+//        veg_list.add(new pojoHome1("Cucumber","50","  https://freepngimg.com/thumb/cucumber/8-2-cucumber-png-pic.png"));
+//        veg_list.add(new pojoHome1("Brinjal","50"," https://lh3.googleusercontent.com/proxy/dS-1z_s1lXfnRqjJ2mt9F5-SKhhgm-DPUKg4QjIAmgDXoRABWEgwqKvQ1GYv-IQ8B76z4fkgTGAm-t_HtjBi8FUZnVUKMfLaBhmTFMkjTAVby3jhP0v7OlfEqsHB5kkG7qn0LYbseQ"));
+//        veg_list.add(new pojoHome1("Potato","50"," https://pngimg.com/uploads/potato/potato_png2391.png"));
+//        veg_list.add(new pojoHome1("Tomato","50"," https://purepng.com/public/uploads/large/purepng.com-red-tomatoestomatosalad-fruitred-fruittomatoes-1701527316509mirzn.png"));
+//        veg_list.add(new pojoHome1("Peas","50"," https://i.pinimg.com/736x/9e/1f/5b/9e1f5b5a9d1d92191e410cc9a734ff50.jpg"));
+//        veg_list.add(new pojoHome1("Green Chili","50"," https://pngimg.com/uploads/cauliflower/cauliflower_PNG12668.png"));
+
+
+        veg_list.add(new pojoHome1("Carrot","50","https://i.ndtvimg.com/mt/cooks/2014-11/carrots.jpg"));
+        veg_list.add(new pojoHome1("Cauliflower","50","https://specialtyproduce.com/sppics/112.png"));
+        veg_list.add(new pojoHome1("Cucumber","50","https://freshpoint.com/wp-content/uploads/2020/02/freshpoint-english-cucumber-scaled.jpg"));
+        veg_list.add(new pojoHome1("Brinjal","50","https://st1.thehealthsite.com/wp-content/uploads/2013/09/brinjal.jpg"));
+        veg_list.add(new pojoHome1("Potato","50","https://www.potatogoodness.com/wp-content/uploads/2019/02/white-potato-beauty-shot.png"));
+        veg_list.add(new pojoHome1("Tomato","50","https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg"));
+        veg_list.add(new pojoHome1("Peas","50","https://cdn.shopify.com/s/files/1/1380/2059/products/Peas_grande.jpg?v=1598082087"));
+        veg_list.add(new pojoHome1("Green Chili","50","https://5.imimg.com/data5/EI/OA/HT/SELLER-109197867/red-onion-500x500.jpg"));
+
 
         adp2 = new AdapterHome1(Home.this,veg_list);
         veg_rv.setAdapter(adp2);
