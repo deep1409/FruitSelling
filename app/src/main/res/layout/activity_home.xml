@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,14 +14,13 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
 
 
             <androidx.appcompat.widget.Toolbar
@@ -63,15 +61,14 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="32dp"
                 android:text="Discover our"
                 android:textColor="@color/dark"
                 android:textSize="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.102"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView13" />
-
+                app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -81,19 +78,21 @@
                 android:textColor="@color/dark"
                 android:textSize="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.115"
+                app:layout_constraintHorizontal_bias="0.11"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
 
             <TextView
                 android:id="@+id/fruit_lable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25sp"
-                android:layout_marginTop="20sp"
                 android:text="Fruits"
                 android:textColor="@color/black"
                 android:textSize="28sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginStart="25sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -101,60 +100,76 @@
                 android:id="@+id/fruit_see_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="25sp"
-                android:fontFamily="@font/product_sans_bold"
                 android:text="See All"
                 android:textColor="@color/dark"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/fruit_lable"
+                android:fontFamily="@font/product_sans_bold"
+                app:layout_constraintTop_toBottomOf="@id/textView3"
+                android:layout_marginTop="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/fruit_lable" />
+                android:layout_marginEnd="25sp"
+                />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/fruit_recycle_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/fruit_lable"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginHorizontal="15sp"
                 android:layout_marginTop="10sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fruit_lable" />
+                />
 
             <TextView
                 android:id="@+id/veg_lable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25sp"
-                android:layout_marginTop="20sp"
                 android:text="Vegetables"
                 android:textColor="@color/black"
                 android:textSize="28sp"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fruit_recycle_view"
+                android:layout_marginTop="20sp"
+                app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="296dp" />
 
             <TextView
                 android:id="@+id/veg_see_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
+                android:layout_marginEnd="25sp"
                 android:fontFamily="@font/product_sans_bold"
                 android:text="See All"
+                app:layout_constraintTop_toBottomOf="@id/fruit_recycle_view"
+                android:layout_marginTop="20sp"
                 android:textColor="@color/dark"
                 android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/veg_lable"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/veg_lable" />
+                tools:layout_editor_absoluteY="286dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/veg_recycle_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/veg_lable"
                 android:layout_marginHorizontal="15sp"
                 android:layout_marginTop="10sp"
+                />
+
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20sp"
+                android:layout_marginHorizontal="20sp"
+                android:background="@color/light_brown"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/veg_lable" />
+                app:layout_constraintTop_toBottomOf="@+id/tool_bar">
+            </SearchView>
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -163,33 +178,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.637"
                 app:layout_constraintStart_toEndOf="@+id/textView3"
-                app:layout_constraintTop_toBottomOf="@+id/search"
+                app:layout_constraintTop_toBottomOf="@+id/searchView"
                 app:srcCompat="@drawable/home_man" />
-
-            <EditText
-                android:id="@+id/search"
-                android:layout_width="321dp"
-                android:layout_height="49dp"
-                android:layout_marginEnd="24dp"
-                android:ems="10"
-                android:hint="Search..."
-                app:layout_constraintBottom_toBottomOf="@+id/imageView13"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView13"
-                app:layout_constraintTop_toTopOf="@+id/imageView13"
-                app:layout_constraintVertical_bias="0.578"
-                tools:ignore="MissingConstraints" />
-
-            <ImageView
-                android:id="@+id/imageView13"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="36dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tool_bar"
-                app:srcCompat="@drawable/ic_baseline_search_24" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
