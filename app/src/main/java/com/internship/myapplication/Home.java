@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.internship.myapplication.Adapter.AdapterHome;
@@ -54,7 +55,7 @@ public class Home extends AppCompatActivity /*implements Drawer_Adapter.OnItemSe
 
     AdapterHome adp1;
     AdapterHome1 adp2;
-
+    TextView fruitSeeAll,vegSeeAll;
     Window window;
 
     @Override
@@ -67,6 +68,9 @@ public class Home extends AppCompatActivity /*implements Drawer_Adapter.OnItemSe
             window = this.getWindow();
             window.setStatusBarColor(this.getResources().getColor(R.color.white));
         }
+
+        fruitSeeAll = findViewById(R.id.fruit_see_all);
+        vegSeeAll = findViewById(R.id.veg_see_all);
 
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
@@ -99,16 +103,6 @@ public class Home extends AppCompatActivity /*implements Drawer_Adapter.OnItemSe
         fruit_rv.setHasFixedSize(true);
 
         fruit_list = new ArrayList<>();
-//        fruit_list.add(new pojoHome("Test","Google","https://chromeunboxed.com/wp-content/uploads/2017/08/IDR_LOGIN_DEFAULT_USER_34@2x.png"));
-//        fruit_list.add(new pojoHome("Lemon","50","https://freepngimg.com/thumb/lemon/5-2-lemon-png-hd.png"));
-//        fruit_list.add(new pojoHome("Guava","50","https://lh3.googleusercontent.com/proxy/T3LITUEJdfW60ifSXqR3WOLzJgVMRtfXQxi1LsMdr22WgXFHAq5ZP98erXTNj4PIw03TH_NclqUYWD7gExa2uXULa_3JaSAWWNWUZ6C2aV57QsscMQHVfhbtVM01zB4"));
-//        fruit_list.add(new pojoHome("Custard apple","50","https://www.pngarts.com/files/3/Sugar-Apple-PNG-Download-Image.png"));
-//        fruit_list.add(new pojoHome("Watermalen","50","https://lh3.googleusercontent.com/proxy/Ri786hkch8YIJbsb94gEWX8E6Q7lbfLNjGXmTBjzgU7TtzrCk0quZdqGpz4lCnxFRsD1Iqrxe1fvFU4eFioMQiUJRTwV4c91oWZ3C4YaWZek6Pz8EQ3XzjK6-qWB4yUKWsFuk0iAYwXk"));
-//        fruit_list.add(new pojoHome("Grapes","50","https://lh3.googleusercontent.com/proxy/3FWwsdgBSq0a_hUTIapyZ4aCTzA1BCrZf3DhpFjx3hwQtTATtFzV96yXmGhbNt-YwcLAN0pBJvzt0YJqgcnvvQEfshqBJjakO2rSAzPFHX8Czt551YTjrq6EeQ5eXQ"));
-//        fruit_list.add(new pojoHome("Apple","50","https://freepngimg.com/thumb/apple/7-2-apple-fruit-png.png"));
-//        fruit_list.add(new pojoHome("Blackberry","50","https://freepngimg.com/thumb/blackberry/6-2-blackberry-fruit-free-png-image.png"));
-//        fruit_list.add(new pojoHome("Orange","50","https://pngimg.com/uploads/orange/orange_PNG780.png"));
-
         fruit_list.add(new pojoHome("Lemon","50","https://i.ndtvimg.com/mt/cooks/2014-11/lemon.jpg"));
         fruit_list.add(new pojoHome("Guava","50","https://www.santosfood.com/wp-content/uploads/2020/01/4-4.jpg"));
         fruit_list.add(new pojoHome("Custard apple","50","https://www.parasperfumers.com/upload/product_ecom/Custard-Apple-Seed-Oil.jpg"));
@@ -126,16 +120,6 @@ public class Home extends AppCompatActivity /*implements Drawer_Adapter.OnItemSe
         veg_rv.setHasFixedSize(true);
 
         veg_list = new ArrayList<>();
-//        veg_list.add(new pojoHome1("Carrot","50","https://lh3.googleusercontent.com/proxy/Tzd0uXOSdAQ7GXgCiPml3RmFkm7SxPeJxOOPcLOxa2Jn-xmocOAPZZKJvH0IFEqWiYfHxk5lpTfKqDhbLeJp9qNTCdv2GaMd"));
-//        veg_list.add(new pojoHome1("Cauliflower","50"," https://pngimg.com/uploads/cauliflower/cauliflower_PNG12668.png"));
-//        veg_list.add(new pojoHome1("Cucumber","50","  https://freepngimg.com/thumb/cucumber/8-2-cucumber-png-pic.png"));
-//        veg_list.add(new pojoHome1("Brinjal","50"," https://lh3.googleusercontent.com/proxy/dS-1z_s1lXfnRqjJ2mt9F5-SKhhgm-DPUKg4QjIAmgDXoRABWEgwqKvQ1GYv-IQ8B76z4fkgTGAm-t_HtjBi8FUZnVUKMfLaBhmTFMkjTAVby3jhP0v7OlfEqsHB5kkG7qn0LYbseQ"));
-//        veg_list.add(new pojoHome1("Potato","50"," https://pngimg.com/uploads/potato/potato_png2391.png"));
-//        veg_list.add(new pojoHome1("Tomato","50"," https://purepng.com/public/uploads/large/purepng.com-red-tomatoestomatosalad-fruitred-fruittomatoes-1701527316509mirzn.png"));
-//        veg_list.add(new pojoHome1("Peas","50"," https://i.pinimg.com/736x/9e/1f/5b/9e1f5b5a9d1d92191e410cc9a734ff50.jpg"));
-//        veg_list.add(new pojoHome1("Green Chili","50"," https://pngimg.com/uploads/cauliflower/cauliflower_PNG12668.png"));
-
-
         veg_list.add(new pojoHome1("Carrot","50","https://i.ndtvimg.com/mt/cooks/2014-11/carrots.jpg"));
         veg_list.add(new pojoHome1("Cauliflower","50","https://specialtyproduce.com/sppics/112.png"));
         veg_list.add(new pojoHome1("Cucumber","50","https://freshpoint.com/wp-content/uploads/2020/02/freshpoint-english-cucumber-scaled.jpg"));
@@ -148,6 +132,25 @@ public class Home extends AppCompatActivity /*implements Drawer_Adapter.OnItemSe
 
         adp2 = new AdapterHome1(Home.this,veg_list);
         veg_rv.setAdapter(adp2);
+
+        fruitSeeAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Home.this,See_all.class);
+                i.putExtra("type","fruit");
+                i.putExtra("lable","Fruits");
+                startActivity(i);
+            }
+        });
+        vegSeeAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Home.this,See_all.class);
+                i.putExtra("type","veg");
+                i.putExtra("lable","Vegetables");
+                startActivity(i);
+            }
+        });
 
 
 //        screenIcons = loadScreenIcons();

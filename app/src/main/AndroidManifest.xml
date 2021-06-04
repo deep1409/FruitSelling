@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.internship.myapplication">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -12,25 +12,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FruitSelling">
-        <activity android:name=".Item_description"/>
-
-        <activity android:name=".Home">
+        <activity android:name=".See_all"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Item_description" />
+        <activity android:name=".Home"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Login"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Sign_up"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".Login" />
-        <activity android:name=".Sign_up">
-        </activity>
-        <activity android:name=".MainActivity" >
-
-        </activity>
-        <activity android:name=".Cart" >
-
-        </activity>
+        <activity android:name=".Cart"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

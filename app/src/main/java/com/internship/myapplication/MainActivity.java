@@ -45,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
                 if (sp == false)
                 {
-                    startActivity(new Intent(MainActivity.this,Sign_up.class));
+                    startActivity(new Intent(MainActivity.this,Login.class));
                 }
                 else{
-                    startActivity(new Intent(MainActivity.this, Login.class));
+                    startActivity(new Intent(MainActivity.this, Home.class));
                 }
 
                 //Intent i = new Intent(Splash.this, Login.class);
