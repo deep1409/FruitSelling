@@ -46,10 +46,14 @@ public class Item_description extends AppCompatActivity {
         quan_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (counter >= 9 || item_quantity.getText().toString().equals(10)){
+                if (counter >= 10 || item_quantity.getText().toString().equals(10)){
                     Toast.makeText(Item_description.this, "Sorry!, You can't buy more than 10.", Toast.LENGTH_SHORT).show();
-                    counter = 9;
+                    counter = 10;
                     item_quantity.setText(String.valueOf(counter));
+                    int total = Integer.valueOf(i.getStringExtra("price"));
+                    int grant_total = counter*total;
+                    String s = String.valueOf(grant_total);
+                    item_total_price.setText(s);
                 }
                 else {
                     counter++;
@@ -65,11 +69,14 @@ public class Item_description extends AppCompatActivity {
         quan_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (counter <= 0 || item_quantity.getText().toString().equals(0)){
+                if (counter == 1 || item_quantity.getText().toString().equals(0)){
                     Toast.makeText(Item_description.this, "Sorry!, You can't buy less than 1 item.", Toast.LENGTH_SHORT).show();
                     counter = 1;
                     item_quantity.setText(String.valueOf(counter));
-
+                    int total = Integer.valueOf(i.getStringExtra("price"));
+                    int grant_total = counter*total;
+                    String s = String.valueOf(grant_total);
+                    item_total_price.setText(s);
                 }
                 else {
                     counter--;
