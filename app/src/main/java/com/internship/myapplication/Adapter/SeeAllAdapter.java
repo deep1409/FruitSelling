@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -58,7 +59,9 @@ public class SeeAllAdapter extends RecyclerView.Adapter<SeeAllAdapter.myViewHold
                 i.putExtra("img",p.getItem_url());
                 i.putExtra("name",p.getItem_name());
                 i.putExtra("price",p.getItem_price());
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(i);
+//                Toast.makeText(context.getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
             }
         });
 
