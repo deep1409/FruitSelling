@@ -15,9 +15,7 @@
     >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        >
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/item_img_see_all"
@@ -49,7 +47,7 @@
             android:id="@+id/item_price_see_all"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="₹50 kg"
+            android:text="₹50/kg"
             app:layout_constraintTop_toBottomOf="@id/item_name_see_all"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,8 +66,5 @@
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
 </com.google.android.material.card.MaterialCardView>
