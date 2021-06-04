@@ -3,12 +3,23 @@
     <string-array name="id_activityScreenTitles">
         <item></item>
         <item>DashBoard</item>
+        <item>My Profile</item>
+        <item>My Cart</item>
+        <item>My Orders</item>
+        <item>Log Out</item>
 
+        <item></item>
     </string-array>
+
 
     <string-array name="id_activityScreenIcons">
         <item></item>
-        <item>@drawable/login_girl</item>
+        <item>@drawable/ic_baseline_home_24</item>
+        <item>@drawable/ic_baseline_person_24</item>
+        <item>@drawable/ic_baseline_shopping_cart_24</item>
+        <item>@drawable/ic_baseline_list_alt_24</item>
+        <item>@drawable/ic_baseline_logout_24</item>
+        <item></item>
 
     </string-array>
 </resources>

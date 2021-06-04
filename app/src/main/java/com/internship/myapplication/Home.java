@@ -14,11 +14,14 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Space;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.internship.myapplication.Adapter.AdapterHome;
@@ -33,13 +36,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Home extends AppCompatActivity /*implements Drawer_Adapter.OnItemSelectedListener */{
+public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSelectedListener {
 
     private static final int POS_CLOSE = 0;
     private static final int POS_DASHBOARD = 1;
     private static final int POS_MY_PROFILE = 2;
     private static final int POS_MY_CART = 3;
-    private static final int POS_ABOUT_US = 4;
+    private static final int POS_MY_ORDERS = 4;
     private static final int POS_LOGOUT = 5;
 
     private String[] screenTitles;
@@ -91,13 +94,14 @@ public class Home extends AppCompatActivity /*implements Drawer_Adapter.OnItemSe
         slidingRootNav = (SlidingRootNav) new SlidingRootNavBuilder(this)
                 .withToolbarMenuToggle(toolbar)
                 .withMenuOpened(false)
-                .withMenuLayout(R.layout.navigation_drawer)
+                .withMenuLayout(R.layout.new_navigation_drawer)
+                .withDragDistance(180)
+                .withRootViewScale(0.75f)
+                .withRootViewElevation(25)
+                .withContentClickableWhenMenuOpened(false)
+                .withSavedState(savedInstanceState)
                 .inject();
-        //.withDragDistance(180)
-        //.withRootViewScale(0.75f)
-        //.withRootViewElevation(25)
-        //.withContentClickableWhenMenuOpened(false)
-        //.withSavedState(savedInstanceState)
+
 
         fruit_rv.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.HORIZONTAL, false));
         fruit_rv.setHasFixedSize(true);
@@ -153,83 +157,120 @@ public class Home extends AppCompatActivity /*implements Drawer_Adapter.OnItemSe
         });
 
 
-//        screenIcons = loadScreenIcons();
-//        screenTitles = loadScreenTitles();
-//
-//        Drawer_Adapter adapter = new Drawer_Adapter(Arrays.asList(
-//                //createItemFor(POS_CLOSE),
-//                //createItemFor(POS_DASHBOARD).setChecked(true),
-//                //createItemFor(POS_MY_PROFILE),
-//                //createItemFor(POS_MY_CART),
-//                //createItemFor(POS_ABOUT_US),
-//                //new SpaceItem(260),
-//               // createItemFor(POS_LOGOUT)
-//        ));
-//        adapter.setListener(this);
-//
-//        //drawer_list
-//        RecyclerView list =findViewById(R.id.drop);
-//        list.setNestedScrollingEnabled(false);
-//        //linear layout
-//        list.setLayoutManager(new LinearLayoutManager(this));
-//
-//        adapter.setSelected(POS_DASHBOARD);
-//
-//    }
-//
-//    private void setSupportActionBar(Toolbar toolbar) {
-//    }
-//
-//    private DrawerItem createItemFor(int postion){
-//        return new SimpleItem(screenIcons[postion],screenTitles[postion])
-//                .withIconTint(color(R.color.light_blue));
-//                //.withTextTint(color(R.color.black));
-//                //.withSelectedIconTint(color(R.color.light_blue));
-//                //.withSelectedItemTextTint(color(R.color.light_blue));
-//
-//    }
-//
-//    @ColorInt
-//    private  int color(@ColorRes int res){
-//        return ContextCompat.getColor(this,res);
-//    }
-//
-//    private String[] loadScreenTitles() {
-//        return getResources().getStringArray(R.array.id_activityScreenTitles);
-//    }
-//
-//    private Drawable[] loadScreenIcons() {
-//        TypedArray ta = getResources().obtainTypedArray(R.array.id_activityScreenIcons);
-//        Drawable[] icons = new Drawable[ta.length()];
-//        for(int i = 0; i<ta.length();i++)
-//        {
-//            int id = ta.getResourceId(i, 0);
-//            if (id != 0) {
-//                icons[id] = ContextCompat.getDrawable(this,id);
-//            }
-//        }
-//        ta.recycle();
-//        return icons;
-//    }
-//
-//    @Override
-//    public void onBackPressed() {
-//        finish();
-//    }
-//
-//   // slidingRootNav.closeMenu();
-//   // transaction.addToBackStack(null);
-//   // transaction.commit();
-//
-//    @Override
-//    public void onItemSelected(int position) {
-//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//        if(position == POS_DASHBOARD){
-//            DashBoardFragment dashBoardFragment = new DashBoardFragment();
-//            transaction.replace(R.id.container,dashBoardFragment);
-//        }
-//    }
-//    }
+        screenIcons = loadScreenIcons();
+        screenTitles = loadScreenTitles();
+
+        Drawer_Adapter adapter = new Drawer_Adapter(Arrays.asList(
+           createItemFor(POS_CLOSE),
+           createItemFor(POS_DASHBOARD).setChecked(true),
+           createItemFor(POS_MY_PROFILE),
+           createItemFor(POS_MY_CART),
+           createItemFor(POS_MY_ORDERS),
+           //new SpaceItem(100),
+           createItemFor(POS_LOGOUT)
+        ));
+        adapter.setListener(this);
+
+     /*   Drawer_Adapter adapter = new Drawer_Adapter(Arrays.asList(
+                createItemFor(POS_CLOSE),
+                createItemFor(POS_DASHBOARD).setChecked(true),
+                createItemFor(POS_MY_PROFILE),
+                createItemFor(POS_MY_CART),
+                createItemFor(POS_MY_ORDERS),
+
+                createItemFor(POS_LOGOUT)
+        ));
+        adapter.setListener(this);*/
+
+        //drawer_list
+        RecyclerView list =findViewById(R.id.drawer_list);
+        list.setNestedScrollingEnabled(false);
+        //linear layout
+        list.setLayoutManager(new LinearLayoutManager(this));
+        list.setAdapter(adapter);
+        adapter.setSelected(POS_DASHBOARD);
 
     }
-}
+
+    private void setSupportActionBar(Toolbar toolbar) {
+    }
+
+    private DrawerItem<SimpleItem.ViewHolder> createItemFor(int postion){
+        return new SimpleItem(screenIcons[postion],screenTitles[postion])
+                .withIconTint(color(R.color.black))
+                .withTextTint(color(R.color.black))
+                .withSelectedIconTint(color(R.color.black))
+                .withSelectedTextTint(color(R.color.black));
+
+    }
+
+    @ColorInt
+    private  int color(@ColorRes int res){
+        return ContextCompat.getColor(this,res);
+    }
+
+    private String[] loadScreenTitles() {
+        return getResources().getStringArray(R.array.id_activityScreenTitles);
+    }
+
+    private Drawable[] loadScreenIcons() {
+        TypedArray ta = getResources().obtainTypedArray(R.array.id_activityScreenIcons);
+        Drawable[] icons = new Drawable[ta.length()];
+        for(int i = 0; i<=ta.length();i++)
+        {
+            int id = ta.getResourceId(i, 0);
+            Log.d("Test", "id: "+id);
+            Log.d("Test", "i: "+i);
+            Log.d("Test", "ta: "+ta.length());
+            if (id != 0) {
+                try {
+                    icons[i] = ContextCompat.getDrawable(this,id);
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                    Log.d("Test", "loadScreenIcons: Exeception :"+e.toString());
+                }
+            }
+        }
+        Log.d("Test", "loadScreenIcons: "+icons.length);
+        ta.recycle();
+        return icons;
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
+   // slidingRootNav.closeMenu();
+   // transaction.addToBackStack(null);
+   // transaction.commit();
+
+
+
+    @Override
+    public void onItemSelected(int position) {
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        if(position == POS_DASHBOARD){
+//            DashboardFragment dashboardFragment = new DashboardFragment();
+//            transaction.replace(R.id.container,dashboardFragment);
+//        }
+//        if(position == POS_MY_PROFILE){
+//            DashboardFragment dashboardFragment = new DashboardFragment();
+//            transaction.replace(R.id.container,dashboardFragment);
+//        }
+//        if(position == POS_MY_ORDERS){
+//            DashboardFragment dashboardFragment = new DashboardFragment();
+//            transaction.replace(R.id.container,dashboardFragment);
+//        }
+//        if(position == POS_MY_CART){
+//            DashboardFragment dashboardFragment = new DashboardFragment();
+//            transaction.replace(R.id.container,dashboardFragment);
+//        }
+        if(position == POS_MY_CART){
+            Toast.makeText(getApplicationContext(),"cart",Toast.LENGTH_SHORT).show();
+        }
+    }
+    }
+
+

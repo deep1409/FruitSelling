@@ -14,7 +14,13 @@ public abstract class DrawerItem <T extends Drawer_Adapter.ViewHolder>{
     }
 
     public boolean isChecked(){
-        return isChecked();
+        if(isChecked){
+            return true;
+        }
+        else{
+            return false;
+        }
+       // return isChecked();
     }
 
     public boolean isSelectable(){

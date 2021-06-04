@@ -41,16 +41,16 @@ public class SimpleItem extends DrawerItem<SimpleItem.ViewHolder> {
         holder.title.setText(title);
         holder.icon.setImageDrawable(icon);
 
-        holder.title.setText(isChecked ? selectedItemTextint : normalItemTextTint);
-        holder.title.setText(isChecked ? selectedItemIconint : normalItemIconTint);
+//        holder.title.setText(isChecked ? selectedItemTextint : normalItemTextTint);
+//        holder.icon.setColorFilter(isChecked ? selectedItemIconint : normalItemIconTint);
     }
 
-    public SimpleItem withSelectedIconTint(int SelectedItemIconTint){
+    public SimpleItem withSelectedIconTint(int selectedItemIconTint){
         this.selectedItemIconint = selectedItemIconint;
         return this;
     }
 
-    public SimpleItem withSelectedTextTint(int SelectedItemTextTint){
+    public SimpleItem withSelectedTextTint(int selectedItemIconint){
         this.selectedItemTextint = selectedItemTextint;
         return this;
     }
@@ -64,7 +64,6 @@ public class SimpleItem extends DrawerItem<SimpleItem.ViewHolder> {
     }
 
 
-
     static class ViewHolder extends Drawer_Adapter.ViewHolder{
 
         private ImageView icon;
@@ -73,7 +72,7 @@ public class SimpleItem extends DrawerItem<SimpleItem.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             icon = itemView.findViewById(R.id.icon);
-            title = itemView.findViewById(R.id.title);
+            title = itemView.findViewById(R.id.title_navigation);
 
         }
     }
