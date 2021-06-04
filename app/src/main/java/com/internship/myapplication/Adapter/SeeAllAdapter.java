@@ -36,7 +36,7 @@ public class SeeAllAdapter extends RecyclerView.Adapter<SeeAllAdapter.myViewHold
     @Override
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.home_custom_cardview,parent, false);
+                .inflate(R.layout.see_all_card,parent, false);
 
         return new myViewHolder(v);
     }
@@ -80,10 +80,10 @@ public class SeeAllAdapter extends RecyclerView.Adapter<SeeAllAdapter.myViewHold
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
-            item_img = (ImageView) itemView.findViewById(R.id.item_img);
-            itemName = (TextView) itemView.findViewById(R.id.item_name);
-            itemPrice = (TextView) itemView.findViewById(R.id.item_price);
-            cardView = (MaterialCardView) itemView.findViewById(R.id.home_cardview);
+            item_img = (ImageView) itemView.findViewById(R.id.item_img_see_all);
+            itemName = (TextView) itemView.findViewById(R.id.item_name_see_all);
+            itemPrice = (TextView) itemView.findViewById(R.id.item_price_see_all);
+            cardView = (MaterialCardView) itemView.findViewById(R.id.home_cardview_see_all);
         }
     }
 }

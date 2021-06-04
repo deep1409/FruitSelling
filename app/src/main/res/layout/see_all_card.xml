@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
-    android:id="@+id/home_cardview"
+    android:id="@+id/home_cardview_see_all"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="200sp"
     android:layout_height="wrap_content"
     android:padding="10sp"
     android:layout_marginVertical="7sp"
-    android:layout_marginStart="7sp"
-    android:layout_marginEnd="5sp"
+    android:layout_marginStart="10sp"
+    android:layout_marginEnd="7sp"
     app:cardCornerRadius="25sp"
     app:cardElevation="5sp"
     app:cardBackgroundColor="@color/white"
@@ -20,7 +20,7 @@
         >
 
         <ImageView
-            android:id="@+id/item_img"
+            android:id="@+id/item_img_see_all"
             android:layout_width="150sp"
             android:layout_height="150sp"
             android:layout_marginTop="15sp"
@@ -32,7 +32,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/item_name"
+            android:id="@+id/item_name_see_all"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Orange"
@@ -43,14 +43,14 @@
             android:fontFamily="@font/product_sans_bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/item_img" />
+            app:layout_constraintTop_toBottomOf="@+id/item_img_see_all" />
 
         <TextView
-            android:id="@+id/item_price"
+            android:id="@+id/item_price_see_all"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="₹50 kg"
-            app:layout_constraintTop_toBottomOf="@id/item_name"
+            app:layout_constraintTop_toBottomOf="@id/item_name_see_all"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:textColor="@color/black"
@@ -63,7 +63,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/item_price"
+            app:layout_constraintTop_toBottomOf="@id/item_price_see_all"
             android:textSize="15sp"
             />
 

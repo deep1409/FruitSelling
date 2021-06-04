@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,6 +32,8 @@ public class See_all extends AppCompatActivity {
     SeeAllAdapter adapter;
     Intent i;
     String s,fruit,veg;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,9 +110,22 @@ public class See_all extends AppCompatActivity {
 //
 //        }
 
+        back_arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
+
 
         rv.setAdapter(adapter);
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }
