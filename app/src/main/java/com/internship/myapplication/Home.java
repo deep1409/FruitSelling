@@ -250,24 +250,22 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
 
     @Override
     public void onItemSelected(int position) {
-//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//        if(position == POS_DASHBOARD){
-//            DashboardFragment dashboardFragment = new DashboardFragment();
-//            transaction.replace(R.id.container,dashboardFragment);
-//        }
-//        if(position == POS_MY_PROFILE){
-//            DashboardFragment dashboardFragment = new DashboardFragment();
-//            transaction.replace(R.id.container,dashboardFragment);
-//        }
-//        if(position == POS_MY_ORDERS){
-//            DashboardFragment dashboardFragment = new DashboardFragment();
-//            transaction.replace(R.id.container,dashboardFragment);
-//        }
-//        if(position == POS_MY_CART){
-//            DashboardFragment dashboardFragment = new DashboardFragment();
-//            transaction.replace(R.id.container,dashboardFragment);
-//        }
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        if(position == POS_DASHBOARD){
+            Toast.makeText(getApplicationContext(),"Dash board",Toast.LENGTH_SHORT).show();
+        }
+        if(position == POS_MY_PROFILE){
+            Toast.makeText(getApplicationContext(),"My profile",Toast.LENGTH_SHORT).show();
+        }
+        if(position == POS_MY_ORDERS){
+            Intent intent = new Intent(Home.this,Cart.class);
+                startActivity(intent);
+        }
         if(position == POS_MY_CART){
+            Intent intent = new Intent(Home.this,Cart.class);
+                startActivity(intent);
+        }
+        if(position == POS_LOGOUT){
             Toast.makeText(getApplicationContext(),"cart",Toast.LENGTH_SHORT).show();
         }
     }
