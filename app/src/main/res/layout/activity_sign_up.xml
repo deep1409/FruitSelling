@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="35sp"
+                android:layout_marginTop="20sp"
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -44,18 +44,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="35sp"
+                android:layout_marginTop="15sp"
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/filledTextField_name">
+                app:layout_constraintTop_toBottomOf="@id/filledTextField_name"
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_contact"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:hint="Contact"
-                    tools:layout_editor_absoluteX="0dp" />
+                    tools:layout_editor_absoluteX="0dp"
+                    android:inputType="number"/>
                 <!--this is the actual edit text which takes the input-->
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -66,7 +68,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="35sp"
+                android:layout_marginTop="15sp"
+                android:lines="10"
+                android:minLines="5"
+                android:gravity="top|left"
+                android:maxLines="15"
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="35sp"
+                android:layout_marginTop="15sp"
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="35sp"
+                android:layout_marginTop="15sp"
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -132,7 +138,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="35sp"
+                android:layout_marginTop="15sp"
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -143,7 +149,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Zipcode"
-                    tools:layout_editor_absoluteX="0dp" />
+                    tools:layout_editor_absoluteX="0dp"
+                    android:inputType="number"
+                    />
                 <!--this is the actual edit text which takes the input-->
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -154,7 +162,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="35sp"
+                android:layout_marginTop="15sp"
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -164,8 +172,9 @@
                     android:id="@+id/edt_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Username"
-                    tools:layout_editor_absoluteX="0dp" />
+                    android:hint="Email"
+                    tools:layout_editor_absoluteX="0dp"
+                    android:inputType="textEmailAddress"/>
                 <!--this is the actual edit text which takes the input-->
 
             </com.google.android.material.textfield.TextInputLayout>
