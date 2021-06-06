@@ -273,7 +273,10 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
             startActivity(intent);
         }
         if(position == POS_LOGOUT){
+            Intent intent = new Intent(Home.this,Login.class);
+            startActivity(intent);
             Toast.makeText(getApplicationContext(),"Logout",Toast.LENGTH_SHORT).show();
+            finish();
         }
     }
     }
