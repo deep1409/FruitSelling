@@ -2,6 +2,7 @@ package com.internship.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -32,12 +33,14 @@ public class Login extends AppCompatActivity {
     EditText username,password;
     ArrayList<Login_pojo> model;
 
+
     String customer_username,customer_password;
     String login_url;
     String result;
     String header;
     LoadingAnim loadingAnim;
 
+    ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,11 +74,11 @@ public class Login extends AppCompatActivity {
                     login_url = header+"user_login.php?customer_email="+username.getText().toString();
 //                    new retrieve().execute();
 
-                    Handler handler = new Handler(Looper.getMainLooper());
+                   // Handler handler = new Handler(Looper.getMainLooper());
                     executorService.execute(new Runnable() {
                         @Override
                         public void run() {
-                            loadingAnim.startLoadingDialog();
+                            //loadingAnim.startLoadingDialog();
                             try
                             {
                                 JsonParser o = new JsonParser();
@@ -99,7 +102,7 @@ public class Login extends AppCompatActivity {
                                     customer_username = p.getCustomer_email();
                                     customer_password = p.getCustomer_password();
 
-                                    Log.v("username","id: "+username +"pass: "+password);
+                                    Log.v("username","id: "+customer_username +"pass: "+customer_password);
 
                                 }
                             }
@@ -112,10 +115,10 @@ public class Login extends AppCompatActivity {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    if (username.getText().toString().equals(username) && password.getText().toString().equals(password))
+                                    if (username.getText().toString().equals(customer_username) && password.getText().toString().equals(customer_password))
                                     {
                                         Toast.makeText(Login.this, " Login sucessful... ", Toast.LENGTH_SHORT).show();
-                                        loadingAnim.dismissDialog();
+                                       // loadingAnim.dismissDialog();
                                         Intent intent = new Intent(Login.this, Home.class);
 
                                         startActivity(intent);
@@ -133,7 +136,7 @@ public class Login extends AppCompatActivity {
 
                                     }
                                     else{
-                                        loadingAnim.dismissDialog();
+                                      //  loadingAnim.dismissDialog();
                                         Toast.makeText(Login.this, " Email or Password is incorrect!! ", Toast.LENGTH_SHORT).show();
                                     }
                                 }
