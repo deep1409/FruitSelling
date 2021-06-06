@@ -269,7 +269,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
             startActivity(intent);
         }
         if(position == POS_MY_ORDERS){
-            Intent intent = new Intent(Home.this,Cart.class);
+            Intent intent = new Intent(Home.this,Orders.class);
             startActivity(intent);
         }
         if(position == POS_LOGOUT){
