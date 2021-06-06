@@ -33,7 +33,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:subtitleTextColor="@color/teal_700"
-                app:theme="@style/ToolbarBackarrow" />
+                android:theme="@style/ToolbarBackarrow" />
 
             <!--
             <androidx.appcompat.widget.Toolbar
@@ -199,6 +199,16 @@
                 app:layout_constraintStart_toEndOf="@+id/veg_see_all"
                 app:layout_constraintTop_toTopOf="@+id/veg_see_all"
                 app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+            <TextView
+                android:id="@+id/space"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:visibility="invisible"
+                app:layout_constraintTop_toBottomOf="@id/veg_recycle_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -39,11 +39,11 @@ import java.util.List;
 public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSelectedListener {
 
     private static final int POS_CLOSE = 0;
-    private static final int POS_DASHBOARD = 1;
-    private static final int POS_MY_PROFILE = 2;
-    private static final int POS_MY_CART = 3;
-    private static final int POS_MY_ORDERS = 4;
-    private static final int POS_LOGOUT = 5;
+//    private static final int POS_DASHBOARD = 1;
+    private static final int POS_MY_PROFILE = 1;
+    private static final int POS_MY_CART = 2;
+    private static final int POS_MY_ORDERS = 3;
+    private static final int POS_LOGOUT = 4;
 
     private String[] screenTitles;
     private Drawable[] screenIcons;
@@ -162,7 +162,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
 
         Drawer_Adapter adapter = new Drawer_Adapter(Arrays.asList(
            createItemFor(POS_CLOSE),
-           createItemFor(POS_DASHBOARD).setChecked(true),
+//           createItemFor(POS_DASHBOARD),
            createItemFor(POS_MY_PROFILE),
            createItemFor(POS_MY_CART),
            createItemFor(POS_MY_ORDERS),
@@ -188,7 +188,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
         //linear layout
         list.setLayoutManager(new LinearLayoutManager(this));
         list.setAdapter(adapter);
-        adapter.setSelected(POS_DASHBOARD);
+//        adapter.setSelected(POS_DASHBOARD);
 
     }
 
@@ -250,23 +250,30 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
 
     @Override
     public void onItemSelected(int position) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        if(position == POS_DASHBOARD){
-            Toast.makeText(getApplicationContext(),"Dash board",Toast.LENGTH_SHORT).show();
-        }
+        //FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        if(position == POS_DASHBOARD){
+//            try {
+//                startActivity(new Intent(Home.this,Home.class));
+//                Toast.makeText(this, "Dashboard", Toast.LENGTH_SHORT).show();
+//            }
+//            catch (Exception e){
+//                e.printStackTrace();
+//                Log.d("Teste", "Exception: "+e);
+//            }
+//        }
         if(position == POS_MY_PROFILE){
             Toast.makeText(getApplicationContext(),"My profile",Toast.LENGTH_SHORT).show();
         }
-        if(position == POS_MY_ORDERS){
-            Intent intent = new Intent(Home.this,Cart.class);
-                startActivity(intent);
-        }
         if(position == POS_MY_CART){
             Intent intent = new Intent(Home.this,Cart.class);
-                startActivity(intent);
+            startActivity(intent);
+        }
+        if(position == POS_MY_ORDERS){
+            Intent intent = new Intent(Home.this,Cart.class);
+            startActivity(intent);
         }
         if(position == POS_LOGOUT){
-            Toast.makeText(getApplicationContext(),"cart",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Logout",Toast.LENGTH_SHORT).show();
         }
     }
     }
