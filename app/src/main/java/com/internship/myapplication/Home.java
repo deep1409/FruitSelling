@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -50,7 +51,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
 
     public SlidingRootNav slidingRootNav;
     ImageView img,imageView;
-
+    SharedPreferences sp;
     //RecycleView Initialization
     RecyclerView fruit_rv,veg_rv;
     List<pojoHome> fruit_list;
@@ -273,9 +274,9 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
             startActivity(intent);
         }
         if(position == POS_LOGOUT){
-            Intent intent = new Intent(Home.this,Login.class);
-            startActivity(intent);
-            Toast.makeText(getApplicationContext(),"Logout",Toast.LENGTH_SHORT).show();
+            sp = getApplicationContext().getSharedPreferences("login",Context.MODE_PRIVATE);
+            sp.edit().putBoolean("logged",false).apply();
+            startActivity(new Intent(getApplicationContext(), Login.class));
             finish();
         }
     }

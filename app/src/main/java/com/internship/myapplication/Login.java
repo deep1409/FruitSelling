@@ -2,6 +2,7 @@ package com.internship.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -50,6 +51,8 @@ public class Login extends AppCompatActivity {
         signup = findViewById(R.id.signup_text);
         username = findViewById(R.id.edt_username_lg);
         password = findViewById(R.id.edt_password_lg);
+
+        mSP = getSharedPreferences("login", Context.MODE_PRIVATE);
 
         header = getString(R.string.header);
         loadingAnim = new LoadingAnim(Login.this);
@@ -125,6 +128,7 @@ public class Login extends AppCompatActivity {
                                         Intent intent = new Intent(Login.this, Home.class);
 
                                         startActivity(intent);
+                                        finish();
 
                                         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                                         editor = mSharedPreferences.edit();
