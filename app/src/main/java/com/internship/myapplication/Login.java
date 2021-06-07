@@ -2,8 +2,8 @@ package com.internship.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -32,15 +32,15 @@ public class Login extends AppCompatActivity {
     TextView signup;
     EditText username,password;
     ArrayList<Login_pojo> model;
-
-
+    SharedPreferences mSP;
+    SharedPreferences mSharedPreferences;
+    SharedPreferences.Editor editor;
     String customer_username,customer_password;
     String login_url;
     String result;
     String header;
     LoadingAnim loadingAnim;
 
-    ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,12 +73,13 @@ public class Login extends AppCompatActivity {
                 }else{
                     login_url = header+"user_login.php?customer_email="+username.getText().toString();
 //                    new retrieve().execute();
-
-                   // Handler handler = new Handler(Looper.getMainLooper());
+                    Log.v("Login",""+login_url);
+//                    Handler handler = new Handler(Looper.getMainLooper());
+                    loadingAnim.startLoadingDialog();
                     executorService.execute(new Runnable() {
                         @Override
                         public void run() {
-                            //loadingAnim.startLoadingDialog();
+
                             try
                             {
                                 JsonParser o = new JsonParser();
@@ -102,7 +103,8 @@ public class Login extends AppCompatActivity {
                                     customer_username = p.getCustomer_email();
                                     customer_password = p.getCustomer_password();
 
-                                    Log.v("username","id: "+customer_username +"pass: "+customer_password);
+                                    Log.v("username","id: "+username.getText().toString() +" pass: "+password.getText().toString());
+                                    Log.v("customer_username","id: "+customer_username +" pass: "+customer_password);
 
                                 }
                             }
@@ -115,28 +117,29 @@ public class Login extends AppCompatActivity {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
+                                    //write your UI part here....
                                     if (username.getText().toString().equals(customer_username) && password.getText().toString().equals(customer_password))
                                     {
                                         Toast.makeText(Login.this, " Login sucessful... ", Toast.LENGTH_SHORT).show();
-                                       // loadingAnim.dismissDialog();
+                                        loadingAnim.dismissDialog();
                                         Intent intent = new Intent(Login.this, Home.class);
 
                                         startActivity(intent);
 
-//                mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-//                editor = mSharedPreferences.edit();
-//                editor.putString("email_id",edt_username.getText().toString());
-//                editor.putString("password",edt_password.getText().toString());
-//                editor.commit();
-//
-//                mSP.edit().putBoolean("logged",true).apply();
+                                        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                        editor = mSharedPreferences.edit();
+                                        editor.putString("email_id",username.getText().toString());
+                                        editor.putString("password",password.getText().toString());
+                                        editor.commit();
 
-                                        Log.d("sucess",""+password);
-                                        Log.d("sucess",""+username);
+                                        mSP.edit().putBoolean("logged",true).apply();
+
+                                        Log.d("sucess",""+customer_password);
+                                        Log.d("sucess",""+customer_username);
 
                                     }
                                     else{
-                                      //  loadingAnim.dismissDialog();
+                                        loadingAnim.dismissDialog();
                                         Toast.makeText(Login.this, " Email or Password is incorrect!! ", Toast.LENGTH_SHORT).show();
                                     }
                                 }
@@ -145,7 +148,7 @@ public class Login extends AppCompatActivity {
                         }
                     });
 
-                    Log.v("Login",""+login_url);
+
 
                 }
             }
