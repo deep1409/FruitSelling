@@ -262,6 +262,8 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
 //            }
 //        }
         if(position == POS_MY_PROFILE){
+            Intent intent = new Intent(Home.this,MyProfile.class);
+            startActivity(intent);
             Toast.makeText(getApplicationContext(),"My profile",Toast.LENGTH_SHORT).show();
         }
         if(position == POS_MY_CART){

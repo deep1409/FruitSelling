@@ -39,6 +39,9 @@
         <activity
             android:name=".Cart"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".MyProfile"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
