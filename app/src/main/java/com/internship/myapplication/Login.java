@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.internship.myapplication.pojo.Login_pojo;
 
 import org.json.JSONArray;
@@ -41,6 +42,7 @@ public class Login extends AppCompatActivity {
     String result;
     String header;
     LoadingAnim loadingAnim;
+    TextInputLayout textInputLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +53,22 @@ public class Login extends AppCompatActivity {
         signup = findViewById(R.id.signup_text);
         username = findViewById(R.id.edt_username_lg);
         password = findViewById(R.id.edt_password_lg);
+        textInputLayout = findViewById(R.id.filledTextField_pass);
 
         mSP = getSharedPreferences("login", Context.MODE_PRIVATE);
 
         header = getString(R.string.header);
         loadingAnim = new LoadingAnim(Login.this);
+
+        password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (textInputLayout.isErrorEnabled()){
+                    textInputLayout.setErrorEnabled(false);
+                    textInputLayout.setEndIconActivated(true);
+                }
+            }
+        });
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +85,7 @@ public class Login extends AppCompatActivity {
                 if (username.getText().toString().length()==0 ) {
                     username.setError("Username can't be empty");
                 }else if(password.getText().toString().isEmpty()){
-                    password.setError("Password can't be empty");
+                    textInputLayout.setError("Password can't be empty");
                 }else{
                     login_url = header+"user_login.php?customer_email="+username.getText().toString();
 //                    new retrieve().execute();

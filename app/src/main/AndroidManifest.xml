@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FruitSelling">
-        <activity android:name=".Orders"></activity>
+        <activity android:name=".MyProfile"></activity>
+        <activity android:name=".Orders" />
         <activity
             android:name=".See_all"
             android:screenOrientation="portrait" />
