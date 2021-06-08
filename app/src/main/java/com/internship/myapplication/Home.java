@@ -40,6 +40,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
 
     private static final int POS_CLOSE = 0;
 //    private static final int POS_DASHBOARD = 1;
+    // comment by Kalp...
     private static final int POS_MY_PROFILE = 1;
     private static final int POS_MY_CART = 2;
     private static final int POS_MY_ORDERS = 3;
