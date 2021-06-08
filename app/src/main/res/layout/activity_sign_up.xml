@@ -39,7 +39,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/filledTextField_contact"
+                android:id="@+id/filledTextField_email"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_contact"
+                    android:id="@+id/edt_email"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Contact"
@@ -63,7 +63,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/filledTextField_address_line1"
+                android:id="@+id/filledTextField_contact"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,13 +76,35 @@
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/filledTextField_contact">
+                app:layout_constraintTop_toBottomOf="@id/filledTextField_email">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_address_line1"
+                    android:id="@+id/edt_contact"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Address"
+                    tools:layout_editor_absoluteX="0dp" />
+                <!--this is the actual edit text which takes the input-->
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/filledTextField_address"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15sp"
+                android:outlineSpotShadowColor="#4CAF50"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/filledTextField_contact">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="City"
                     tools:layout_editor_absoluteX="0dp" />
                 <!--this is the actual edit text which takes the input-->
 
@@ -98,32 +120,10 @@
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/filledTextField_address_line1">
+                app:layout_constraintTop_toBottomOf="@id/filledTextField_address">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_address_city"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="City"
-                    tools:layout_editor_absoluteX="0dp" />
-                <!--this is the actual edit text which takes the input-->
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/filledTextField_address_state"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="15sp"
-                android:outlineSpotShadowColor="#4CAF50"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/filledTextField_address_city">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_address_state"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="State"
@@ -142,7 +142,7 @@
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/filledTextField_address_state">
+                app:layout_constraintTop_toBottomOf="@id/filledTextField_address_city">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_address_zipcode"
