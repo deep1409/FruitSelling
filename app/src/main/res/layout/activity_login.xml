@@ -61,9 +61,9 @@
         android:layout_marginTop="44dp"
         android:background="@drawable/btn_background"
         android:elevation="25dp"
-        android:text="GET STARTED"
+        android:text="Login"
         android:textAllCaps="false"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textColorHighlight="#FFFFFF"
         android:textColorLink="#FFFFFF"
         android:textSize="20dp"
@@ -124,7 +124,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/imageView4"
