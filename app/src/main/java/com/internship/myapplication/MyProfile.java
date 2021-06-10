@@ -48,7 +48,7 @@ public class MyProfile extends AppCompatActivity {
 
         //edt_profile_name.setText("Darshan");
         edt_profile_name.setFocusableInTouchMode(false);
-        edt_profile_email.setFocusableInTouchMode(false);
+
         edt_profile_contact_no.setFocusableInTouchMode(false);
         edt_profile_address.setFocusableInTouchMode(false);
         edt_profile_city.setFocusableInTouchMode(false);
@@ -61,7 +61,7 @@ public class MyProfile extends AppCompatActivity {
                 my_profile_done.setVisibility(View.VISIBLE);
                 my_profile_edit.setVisibility(View.GONE);
                 edt_profile_name.setFocusableInTouchMode(true);
-                edt_profile_email.setFocusableInTouchMode(true);
+
                 edt_profile_contact_no.setFocusableInTouchMode(true);
                 edt_profile_address.setFocusableInTouchMode(true);
                 edt_profile_city.setFocusableInTouchMode(true);
@@ -73,7 +73,7 @@ public class MyProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 edt_profile_name.setFocusableInTouchMode(false);
-                edt_profile_email.setFocusableInTouchMode(false);
+
                 edt_profile_contact_no.setFocusableInTouchMode(false);
                 edt_profile_address.setFocusableInTouchMode(false);
                 edt_profile_city.setFocusableInTouchMode(false);
@@ -82,7 +82,7 @@ public class MyProfile extends AppCompatActivity {
                 my_profile_done.setVisibility(View.GONE);
 
                 edt_profile_name.setFocusable(false);
-                edt_profile_email.setFocusable(false);
+
                 edt_profile_contact_no.setFocusable(false);
                 edt_profile_address.setFocusable(false);
                 edt_profile_city.setFocusable(false);
