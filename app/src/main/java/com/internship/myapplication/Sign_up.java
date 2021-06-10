@@ -83,6 +83,10 @@ public class Sign_up extends AppCompatActivity {
 
     }
 
+    //https://prolonged-lake.000webhostapp.com/FruitSeller/sign_up.php?customer_email=ab@gmail.com
+    // &customer_password=12345&customer_contact_number=7412589630&customer_name=abcd&customer_address=vadodara
+    // &customer_city=vadodara&customer_pincode=390001
+
     public void postData(){
         AndroidNetworking.post(sign_up_url)
                 .addBodyParameter("firstname", "Amit")
