@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +20,8 @@ public class Sign_up extends AppCompatActivity {
 
     EditText edt_name,edt_email,edt_contact,edt_address,edt_city,edt_address_zipcode,edt_password,confirm_password;
     Button login_button;
-    String sign_up_url,header;
+    String sign_up_url,header,authentication_url;
+    LoadingAnim loadingAnim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +42,19 @@ public class Sign_up extends AppCompatActivity {
 
         header = getString(R.string.header);
         sign_up_url = header + "sign_up.php";
+        authentication_url = header + "sign_up_authentication.php";
+
+        loadingAnim = new LoadingAnim(Sign_up.this);
 
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(edt_password.getText().toString().equals(confirm_password.getText().toString()))
                 {
-                    Toast.makeText(getApplicationContext(),"Access Granted",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Sign_up.this,Login.class);
-                    startActivity(intent);
+                    authentication();
+                    //Toast.makeText(getApplicationContext(),"Access Granted",Toast.LENGTH_SHORT).show();
+                    //Intent intent = new Intent(Sign_up.this,Login.class);
+                    //startActivity(intent);
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"Access Denied",Toast.LENGTH_SHORT).show();
@@ -83,26 +89,68 @@ public class Sign_up extends AppCompatActivity {
 
     }
 
-    //https://prolonged-lake.000webhostapp.com/FruitSeller/sign_up.php?customer_email=ab@gmail.com
-    // &customer_password=12345&customer_contact_number=7412589630&customer_name=abcd&customer_address=vadodara
-    // &customer_city=vadodara&customer_pincode=390001
+    public void authentication(){
 
-    public void postData(){
-        AndroidNetworking.post(sign_up_url)
-                .addBodyParameter("firstname", "Amit")
-                .addBodyParameter("lastname", "Shekhar")
-                .setTag("test")
+        loadingAnim.startLoadingDialog();
+        AndroidNetworking.get(authentication_url)
+                .addQueryParameter("customer_email" , edt_email.getText().toString())
+                .setTag("Test")
                 .setPriority(Priority.MEDIUM)
                 .build()
                 .getAsString(new StringRequestListener() {
                     @Override
                     public void onResponse(String response) {
                         // do anything with response
+                        if(response.equals("you can create your account") ){
+                            postData();
+                        }
+                        if(response.equals( "email already exists")){
+                            loadingAnim.dismissDialog();
+                            Toast.makeText(getApplicationContext(),"Email has already been taken",Toast.LENGTH_SHORT).show();
+                        }
+
                     }
 
                     @Override
                     public void onError(ANError anError) {
+                        loadingAnim.dismissDialog();
+                        Toast.makeText(getApplicationContext(),""+anError,Toast.LENGTH_SHORT).show();
+                    }
+                });
 
+    }
+
+    //https://prolonged-lake.000webhostapp.com/FruitSeller/sign_up.php?customer_email=ab@gmail.com&customer_password=12345&customer_contact_number=7412589630&customer_name=abcd&customer_address=vadodara&customer_city=vadodara&customer_pincode=390001
+
+    public void postData(){
+        AndroidNetworking.get(sign_up_url/*+"?customer_email="+edt_email.getText().toString()+"&customer_password="+edt_password.getText().toString()+"&customer_contact_number="+edt_contact.getText().toString()+"&customer_name="+edt_name.getText().toString()+"&customer_address="+edt_address.getText().toString()+"&customer_city="+edt_city.getText().toString()+"&customer_pincode="+edt_address_zipcode.getText().toString()*/)
+                .addQueryParameter("customer_email", edt_email.getText().toString())
+                .addQueryParameter("customer_contact_number", edt_contact.getText().toString())
+                .addQueryParameter("customer_name", edt_name.getText().toString())
+                .addQueryParameter("customer_address", edt_address.getText().toString())
+                .addQueryParameter("customer_city", edt_city.getText().toString())
+                .addQueryParameter("customer_pincode", edt_address_zipcode.getText().toString())
+                .addQueryParameter("customer_password", edt_password.getText().toString())
+                .setTag("test")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsString(new StringRequestListener() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("Test", "onResponse: "+sign_up_url+"?customer_email="+edt_email.getText().toString()+"&customer_password="+edt_password.getText().toString()+"&customer_contact_number="+edt_contact.getText().toString()+"&customer_name="+edt_name.getText().toString()+"&customer_address="+edt_address.getText().toString()+"&customer_city="+edt_city.getText().toString()+"&customer_pincode="+edt_address_zipcode.getText().toString());
+                        loadingAnim.dismissDialog();
+                        // do anything with response
+                        //if(response.equals("Congratulations, your account has been successfully created.")){
+                            Toast.makeText(getApplicationContext(),""+response,Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Sign_up.this,Home.class);
+                            startActivity(intent);
+                        //}
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        loadingAnim.dismissDialog();
+                        Toast.makeText(Sign_up.this, ""+anError, Toast.LENGTH_SHORT).show();
                     }
                 });
     }
