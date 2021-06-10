@@ -55,4 +55,6 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     // search bar
 
+    //AndroidNetworking
+    implementation 'com.amitshekhar.android:android-networking:1.0.2'
 }

@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+
 public class Sign_up extends AppCompatActivity {
 
     EditText edt_username,edt_password,confirm_password;
@@ -23,7 +25,8 @@ public class Sign_up extends AppCompatActivity {
         edt_password = findViewById(R.id.edt_password);
         confirm_password = findViewById(R.id.confirm_password);
         login_button = findViewById(R.id.login_button);
-
+        AndroidNetworking.initialize(getApplicationContext());
+        
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
