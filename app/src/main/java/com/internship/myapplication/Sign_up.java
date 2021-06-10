@@ -11,11 +11,13 @@ import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.androidnetworking.interfaces.StringRequestListener;
 
 public class Sign_up extends AppCompatActivity {
 
-    EditText edt_username,edt_password,confirm_password;
+    EditText edt_name,edt_email,edt_contact,edt_address,edt_city,edt_address_zipcode,edt_password,confirm_password;
     Button login_button;
     String sign_up_url,header;
 
@@ -24,10 +26,16 @@ public class Sign_up extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        edt_username = findViewById(R.id.edt_username);
+        edt_name = findViewById(R.id.edt_name);
+        edt_email =findViewById(R.id.edt_email);
+        edt_contact = findViewById(R.id.edt_contact);
+        edt_address = findViewById(R.id.edt_address);
+        edt_city = findViewById(R.id.edt_city);
+        edt_address_zipcode = findViewById(R.id.edt_address_zipcode);
         edt_password = findViewById(R.id.edt_password);
         confirm_password = findViewById(R.id.confirm_password);
         login_button = findViewById(R.id.login_button);
+
         AndroidNetworking.initialize(getApplicationContext());
 
         header = getString(R.string.header);
@@ -75,22 +83,23 @@ public class Sign_up extends AppCompatActivity {
 
     }
 
-//    public void postData(){
-//        AndroidNetworking.post(sign_up_url)
-//                .addBodyParameter("firstname", "Amit")
-//                .addBodyParameter("lastname", "Shekhar")
-//                .setTag("test")
-//                .setPriority(Priority.MEDIUM)
-//                .build()
-//                .getAsJSONObject(new JSONObjectRequestListener() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        // do anything with response
-//                    }
-//                    @Override
-//                    public void onError(ANError error) {
-//                        // handle error
-//                    }
-//                });
-//    }
+    public void postData(){
+        AndroidNetworking.post(sign_up_url)
+                .addBodyParameter("firstname", "Amit")
+                .addBodyParameter("lastname", "Shekhar")
+                .setTag("test")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsString(new StringRequestListener() {
+                    @Override
+                    public void onResponse(String response) {
+                        // do anything with response
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                    }
+                });
+    }
 }

@@ -54,7 +54,7 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_email"
+                    android:id="@+id/edt_contact"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Contact"
@@ -82,7 +82,7 @@
                 app:startIconDrawable="@drawable/ic_baseline_home_24">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_contact"
+                    android:id="@+id/edt_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Address"
@@ -106,7 +106,7 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_address"
+                    android:id="@+id/edt_city"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="City"
@@ -179,7 +179,7 @@
                 app:startIconDrawable="@drawable/ic_baseline_email_24">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_username"
+                    android:id="@+id/edt_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
