@@ -26,7 +26,8 @@
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView">
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:startIconDrawable="@drawable/ic_baseline_person_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_name"
@@ -39,7 +40,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/filledTextField_email"
+                android:id="@+id/filledTextField_contact"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,7 +49,8 @@
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/filledTextField_name"
+                app:layout_constraintTop_toBottomOf="@id/filledTextField_email"
+                app:startIconDrawable="@drawable/ic_baseline_phone_24"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -63,7 +65,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/filledTextField_contact"
+                android:id="@+id/filledTextField_address"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,7 +78,8 @@
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/filledTextField_email">
+                app:layout_constraintTop_toBottomOf="@id/filledTextField_contact"
+                app:startIconDrawable="@drawable/ic_baseline_home_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_contact"
@@ -89,7 +92,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/filledTextField_address"
+                android:id="@+id/filledTextField_city"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,7 +101,9 @@
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/filledTextField_contact">
+                app:layout_constraintTop_toBottomOf="@id/filledTextField_address"
+                app:startIconDrawable="@drawable/ic_baseline_location_city_24"
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_address"
@@ -110,6 +115,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+<!--
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/filledTextField_address_city"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -128,9 +134,10 @@
                     android:layout_height="wrap_content"
                     android:hint="State"
                     tools:layout_editor_absoluteX="0dp" />
-                <!--this is the actual edit text which takes the input-->
+                &lt;!&ndash;this is the actual edit text which takes the input&ndash;&gt;
 
             </com.google.android.material.textfield.TextInputLayout>
+-->
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/filledTextField_address_zipcode"
@@ -142,7 +149,9 @@
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/filledTextField_address_city">
+                app:layout_constraintTop_toBottomOf="@id/filledTextField_city"
+                app:startIconDrawable="@drawable/zipcode"
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_address_zipcode"
@@ -157,7 +166,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/filledTextField_username"
+                android:id="@+id/filledTextField_email"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -166,7 +175,8 @@
                 android:outlineSpotShadowColor="#4CAF50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/filledTextField_address_zipcode">
+                app:layout_constraintTop_toBottomOf="@id/filledTextField_name"
+                app:startIconDrawable="@drawable/ic_baseline_email_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_username"
@@ -189,7 +199,7 @@
                 app:endIconMode="password_toggle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/filledTextField_username"
+                app:layout_constraintTop_toBottomOf="@+id/filledTextField_address_zipcode"
                 app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
                 <com.google.android.material.textfield.TextInputEditText

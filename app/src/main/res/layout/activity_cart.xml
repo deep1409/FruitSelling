@@ -27,15 +27,14 @@
                 android:id="@+id/Cart_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CART"
+                android:text="Cart"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:textStyle="bold"
+                android:fontFamily="@font/product_sans_bold"
                 android:transitionName="sign_up"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.038"
-                app:layout_constraintStart_toEndOf="@+id/imageView7"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.548"
                 tools:ignore="MissingConstraints" />
@@ -54,7 +53,7 @@
                 tools:ignore="MissingConstraints">
             </ImageView>
 
-            <ImageView
+            <!--<ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="34dp"
                 android:layout_height="32dp"
@@ -63,7 +62,7 @@
                 app:layout_constraintStart_toEndOf="@+id/back_btn_cart"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.575"
-                app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+                app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

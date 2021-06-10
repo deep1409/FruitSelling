@@ -67,7 +67,8 @@
         android:fontFamily="@font/product_sans_bold"
         android:text="Order Now"
         android:textSize="20sp"
-        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent" />
