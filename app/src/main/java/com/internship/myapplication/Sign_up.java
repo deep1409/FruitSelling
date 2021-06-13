@@ -53,19 +53,17 @@ public class Sign_up extends AppCompatActivity {
                 if (edt_name.getText().toString().length()==0 ) {
                     edt_name.setError("Username can't be empty");
                 }else if(edt_email.getText().length()==0){
-                    edt_email.setError("User email can't be empty");
+                    edt_email.setError("Email can't be empty");
                 }else if(edt_contact.getText().length()==0){
                     edt_contact.setError("contact can't be empty");
                 }else if(edt_address.getText().length()==0){
                     edt_address.setError("Address can't be empty");
-                }else if(edt_city.getText().length()==0){
-                    edt_city.setError("City can't be empty");
                 }else if(edt_address_zipcode.getText().length()==0){
-                    edt_address_zipcode.setError("Zipcode can't be empty");
+                    edt_address_zipcode.setError("ZipCode can't be empty");
                 }else if(edt_password.getText().length()==0){
                     edt_password.setError("Password can't be empty");
                 }else if(confirm_password.getText().length()==0){
-                    confirm_password.setError("Confirm password can't be empty");
+                    confirm_password.setError("Confirm Password can't be empty");
                 }else if(confirm_password.getText().length()==0 && edt_password.getText().length()==0){
                     edt_password.setError("password cant be empty");
                 }else if(edt_password.getText().toString().equals(confirm_password.getText().toString()))
