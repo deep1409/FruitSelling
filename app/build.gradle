@@ -57,4 +57,7 @@ dependencies {
 
     //AndroidNetworking
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
+
+    //Qr_Code
+    implementation 'com.journeyapps:zxing-android-embedded:3.4.0'
 }

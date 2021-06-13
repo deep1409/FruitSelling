@@ -49,7 +49,24 @@ public class Sign_up extends AppCompatActivity {
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(edt_password.getText().toString().equals(confirm_password.getText().toString()))
+
+                if (edt_name.getText().toString().length()==0 ) {
+                    edt_name.setError("Username can't be empty");
+                }else if(edt_email.getText().length()==0){
+                    edt_email.setError("Password can't be empty");
+                }else if(edt_contact.getText().length()==0){
+                    edt_contact.setError("Password can't be empty");
+                }else if(edt_address.getText().length()==0){
+                    edt_address.setError("Password can't be empty");
+                }else if(edt_address_zipcode.getText().length()==0){
+                    edt_address_zipcode.setError("Password can't be empty");
+                }else if(edt_password.getText().length()==0){
+                    edt_password.setError("Password can't be empty");
+                }else if(confirm_password.getText().length()==0){
+                    confirm_password.setError("Password can't be empty");
+                }else if(confirm_password.getText().length()==0 && edt_password.getText().length()==0){
+                    edt_password.setError("password cant be empty");
+                }else if(edt_password.getText().toString().equals(confirm_password.getText().toString()))
                 {
                     authentication();
                     //Toast.makeText(getApplicationContext(),"Access Granted",Toast.LENGTH_SHORT).show();
@@ -123,7 +140,7 @@ public class Sign_up extends AppCompatActivity {
     //https://prolonged-lake.000webhostapp.com/FruitSeller/sign_up.php?customer_email=ab@gmail.com&customer_password=12345&customer_contact_number=7412589630&customer_name=abcd&customer_address=vadodara&customer_city=vadodara&customer_pincode=390001
 
     public void postData(){
-        AndroidNetworking.get(sign_up_url/*+"?customer_email="+edt_email.getText().toString()+"&customer_password="+edt_password.getText().toString()+"&customer_contact_number="+edt_contact.getText().toString()+"&customer_name="+edt_name.getText().toString()+"&customer_address="+edt_address.getText().toString()+"&customer_city="+edt_city.getText().toString()+"&customer_pincode="+edt_address_zipcode.getText().toString()*/)
+        AndroidNetworking.post(sign_up_url/*+"?customer_email="+edt_email.getText().toString()+"&customer_password="+edt_password.getText().toString()+"&customer_contact_number="+edt_contact.getText().toString()+"&customer_name="+edt_name.getText().toString()+"&customer_address="+edt_address.getText().toString()+"&customer_city="+edt_city.getText().toString()+"&customer_pincode="+edt_address_zipcode.getText().toString()*/)
                 .addQueryParameter("customer_email", edt_email.getText().toString())
                 .addQueryParameter("customer_contact_number", edt_contact.getText().toString())
                 .addQueryParameter("customer_name", edt_name.getText().toString())

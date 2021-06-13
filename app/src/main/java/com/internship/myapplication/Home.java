@@ -57,7 +57,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
     private Drawable[] screenIcons;
 
     public SlidingRootNav slidingRootNav;
-    ImageView img,imageView;
+    ImageView img,imageView,imageView2;
     SharedPreferences sp;
     //RecycleView Initialization
     RecyclerView fruit_rv,veg_rv;
@@ -101,6 +101,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
         loadingAnim = new LoadingAnim(Home.this);
 
         imageView = findViewById(R.id.imageView);
+        imageView2 = findViewById(R.id.imageView2);
         fruit_rv = findViewById(R.id.fruit_recycle_view);
         veg_rv = findViewById(R.id.veg_recycle_view);
 
