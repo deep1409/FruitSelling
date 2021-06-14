@@ -1,13 +1,33 @@
 package com.internship.myapplication.pojo;
 
 public class CartModel {
-    String name,image,quantity,price;
+    String name,image,quantity,price,type,id;
 
-    public CartModel(String name, String price, String image, String quantity) {
+    public CartModel(){
+
+    }
+    public CartModel(String name, String price, String image, String quantity, String type) {
         this.name = name;
         this.image = image;
         this.quantity = quantity;
         this.price = price;
+        this.type = type;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getName() {

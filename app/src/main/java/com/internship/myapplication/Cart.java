@@ -39,14 +39,14 @@ public class Cart extends AppCompatActivity {
         });
 
         cart_item = new ArrayList<>();
-        cart_item.add(new CartModel("Lemon","50","https://i.ndtvimg.com/mt/cooks/2014-11/lemon.jpg","2"));
-        cart_item.add(new CartModel("Guava","50","https://www.santosfood.com/wp-content/uploads/2020/01/4-4.jpg","2"));
-        cart_item.add(new CartModel("Custard apple","50","https://www.parasperfumers.com/upload/product_ecom/Custard-Apple-Seed-Oil.jpg","2"));
-        cart_item.add(new CartModel("Watermelon","50","https://cdn.britannica.com/99/143599-050-C3289491/Watermelon.jpg","2"));
-        cart_item.add(new CartModel("Grapes","50","https://www.aicr.org/wp-content/uploads/2020/01/shutterstock_533487490-640x462.jpg","2"));
-        cart_item.add(new CartModel("Apple","50","https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834","2"));
-        cart_item.add(new CartModel("Blackberry","50","https://4.imimg.com/data4/HR/HD/MY-2312690/blackberry-fruit-500x500.jpg","2"));
-        cart_item.add(new CartModel("Orange","50","https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg","2"));
+        cart_item.add(new CartModel("Lemon","50","https://i.ndtvimg.com/mt/cooks/2014-11/lemon.jpg","2","0"));
+        cart_item.add(new CartModel("Guava","50","https://www.santosfood.com/wp-content/uploads/2020/01/4-4.jpg","2","0"));
+        cart_item.add(new CartModel("Custard apple","50","https://www.parasperfumers.com/upload/product_ecom/Custard-Apple-Seed-Oil.jpg","2","0"));
+        cart_item.add(new CartModel("Watermelon","50","https://cdn.britannica.com/99/143599-050-C3289491/Watermelon.jpg","2","0"));
+        cart_item.add(new CartModel("Grapes","50","https://www.aicr.org/wp-content/uploads/2020/01/shutterstock_533487490-640x462.jpg","2","0"));
+        cart_item.add(new CartModel("Apple","50","https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834","2","0"));
+        cart_item.add(new CartModel("Blackberry","50","https://4.imimg.com/data4/HR/HD/MY-2312690/blackberry-fruit-500x500.jpg","2","0"));
+        cart_item.add(new CartModel("Orange","50","https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg","2","0"));
 
         Adapter = new Cart_Adapter(Cart.this,cart_item);
         recyclerview_cart.setLayoutManager(new LinearLayoutManager(this));
