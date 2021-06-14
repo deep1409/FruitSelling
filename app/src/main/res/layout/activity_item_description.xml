@@ -65,26 +65,15 @@
         android:layout_marginBottom="30sp"
         android:background="@drawable/add_to_cart_btn"
         android:fontFamily="@font/product_sans_bold"
-        android:text="Order Now"
-        android:textSize="20sp"
+        android:text="Add to Cart"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/item_des_cart"
-        android:layout_width="0sp"
-        android:layout_height="50sp"
-        android:background="@drawable/add_to_cart_btn"
-        android:padding="10sp"
-        android:layout_marginBottom="30sp"
-        android:layout_marginEnd="20sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:srcCompat="@drawable/baseline_add_shopping_cart_24" />
+        app:layout_constraintStart_toStartOf="parent" >
+        
+    </androidx.appcompat.widget.AppCompatButton>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -144,6 +133,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/item_des_quantity_plus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/item_des_quantity_plus" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,9 @@ public class SeeAllPojo {
         this.item_url = item_url;
     }
 
+    public SeeAllPojo (){
+    }
+
     public String getItem_name() {
         return item_name;
     }

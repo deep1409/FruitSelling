@@ -16,7 +16,7 @@ public class Item_description extends AppCompatActivity {
 
     ImageView item_des_cart,item_img,back_arrow;
     TextView item_name,item_price,item_total_price,item_quantity;
-    Button quan_plus,quan_minus;
+    Button quan_plus,quan_minus,item_des_order_now;
     Intent i;
     int counter = 1;
 
@@ -25,7 +25,7 @@ public class Item_description extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_description);
 
-        item_des_cart = findViewById(R.id.item_des_cart);
+        item_des_order_now = findViewById(R.id.item_des_order_now);
         item_img = findViewById(R.id.item_des_img);
         item_name = findViewById(R.id.item_des_name);
         item_price = findViewById(R.id.item_des_price);
@@ -91,7 +91,7 @@ public class Item_description extends AppCompatActivity {
 
 
 
-        item_des_cart.setOnClickListener(new View.OnClickListener() {
+        item_des_order_now.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Item_description.this,Cart.class);

@@ -159,17 +159,18 @@
                 android:layout_marginTop="10sp"
                 />
 
-            <SearchView
+            <EditText
                 android:id="@+id/searchView"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="20sp"
                 android:layout_marginHorizontal="20sp"
+                android:layout_marginTop="20sp"
                 android:background="@color/light_brown"
+                android:imeOptions="actionSearch"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tool_bar">
-            </SearchView>
+            </EditText>
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -209,6 +210,17 @@
                 app:layout_constraintTop_toBottomOf="@id/veg_recycle_view"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="33dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/searchView"
+                app:layout_constraintStart_toStartOf="@+id/searchView"
+                app:layout_constraintTop_toTopOf="@+id/searchView"
+                app:layout_constraintVertical_bias="0.631"
+                app:srcCompat="@drawable/ic_baseline_search_24" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

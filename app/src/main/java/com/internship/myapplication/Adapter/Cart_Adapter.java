@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,6 +39,12 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.MyViewHolder
 
         CartModel p = list.get(position);
         Picasso.get().load(p.getImage()).into(holder.list_img);
+        holder.list_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "cancel", Toast.LENGTH_SHORT).show();
+            }
+        });
         holder.list_cart_name.setText(p.getName().toString());
         holder.quantity.setText(p.getQuantity().toString());
 
@@ -53,13 +60,14 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.MyViewHolder
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView list_img;
+        ImageView list_img,list_cancel;
         TextView list_cart_name,list_cart_price,quantity;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             list_img = itemView.findViewById(R.id.list_img);
+            list_cancel = itemView.findViewById(R.id.cancel);
             list_cart_name = itemView.findViewById(R.id.list_cart_name);
             list_cart_price = itemView.findViewById(R.id.list_cart_price);
             quantity = itemView.findViewById(R.id.quantity);

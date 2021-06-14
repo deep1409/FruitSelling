@@ -19,6 +19,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/searchView"
+        android:layout_width="334dp"
+        android:layout_height="37dp"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:imeOptions="actionSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintStart_toStartOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/see_all_item_type_name">
+
+    </EditText>
+
     <ImageView
         android:id="@+id/see_all_back_arrow"
         android:layout_width="wrap_content"
@@ -33,12 +49,23 @@
         android:id="@+id/see_all_recycleview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="20dp"
         android:paddingHorizontal="10dp"
         app:layout_constraintBottom_toTopOf="@+id/textView11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/see_all_item_type_name" />
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="33dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/searchView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/searchView"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_baseline_search_24" />
 
     <TextView
         android:id="@+id/textView11"

@@ -15,11 +15,15 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.Space;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -69,11 +73,13 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
     TextView fruitSeeAll,vegSeeAll;
     Window window;
 
-    String url_fruit,url_vegetable;
+    String url_fruit,url_vegetable,search_url;
     String result_url_fruit,result_url_vegetable;
     String header;
     ExecutorService executorService1;
     LoadingAnim loadingAnim;
+    EditText searchView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +96,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
         url_fruit = header + "home_items.php?item_type=0";
         url_vegetable = header + "home_items.php?item_type=1";
 
-
+        searchView = findViewById(R.id.searchView);
         fruitSeeAll = findViewById(R.id.fruit_see_all);
         vegSeeAll = findViewById(R.id.veg_see_all);
 
@@ -104,6 +110,24 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
         imageView2 = findViewById(R.id.imageView2);
         fruit_rv = findViewById(R.id.fruit_recycle_view);
         veg_rv = findViewById(R.id.veg_recycle_view);
+
+        searchView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                search_url = "https://prolonged-lake.000webhostapp.com/FruitSeller/search_view_retrieve.php?item_name="+charSequence;
+                retrieveFromDB();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -171,7 +195,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Home.this,See_all.class);
-                i.putExtra("type","fruit");
+                i.putExtra("type","0");
                 i.putExtra("lable","Fruits");
                 startActivity(i);
             }
@@ -180,7 +204,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Home.this,See_all.class);
-                i.putExtra("type","veg");
+                i.putExtra("type","1");
                 i.putExtra("lable","Vegetables");
                 startActivity(i);
             }
