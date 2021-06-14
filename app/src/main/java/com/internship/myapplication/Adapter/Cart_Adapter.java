@@ -1,6 +1,11 @@
 package com.internship.myapplication.Adapter;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.internship.myapplication.R;
+import com.internship.myapplication.helper;
 import com.internship.myapplication.pojo.CartModel;
 import com.squareup.picasso.Picasso;
 
@@ -21,6 +27,7 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.MyViewHolder
 
     List<CartModel> list;
     Context context;
+    helper helper;
 
     public Cart_Adapter(Context context, List<CartModel> list) {
         this.context = context;
@@ -37,12 +44,38 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull Cart_Adapter.MyViewHolder holder, int position) {
 
+        helper = new helper(context.getApplicationContext());
+
         CartModel p = list.get(position);
         Picasso.get().load(p.getImage()).into(holder.list_img);
         holder.list_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "cancel", Toast.LENGTH_SHORT).show();
+
+                AlertDialog.Builder ab = new AlertDialog.Builder(view.getContext());
+                ab.setCancelable(false);
+                ab.setTitle("Warning!!");
+                ab.setMessage("Are you sure you want to delete this item?");
+                ab.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        helper.delete(p.getId());
+//                        Toast.makeText(context, ""+p.getId(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent (context.getApplicationContext(),context.getClass());
+                        context.startActivity(intent);
+                        ((Activity)context).finish();
+                    }
+                });
+                ab.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = ab.create();
+                alertDialog.show();
+
+//              Toast.makeText(context, "cancel", Toast.LENGTH_SHORT).show();
             }
         });
         holder.list_cart_name.setText(p.getName().toString());
@@ -51,6 +84,7 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.MyViewHolder
         int total = Integer.parseInt(p.getPrice())*Integer.parseInt(p.getQuantity());
 
         holder.list_cart_price.setText(""+total);
+
     }
 
     @Override
@@ -71,6 +105,8 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.MyViewHolder
             list_cart_name = itemView.findViewById(R.id.list_cart_name);
             list_cart_price = itemView.findViewById(R.id.list_cart_price);
             quantity = itemView.findViewById(R.id.quantity);
+
+
 
         }
     }
