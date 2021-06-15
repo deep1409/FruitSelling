@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.internship.myapplication.Adapter.Cart_Adapter;
 import com.internship.myapplication.pojo.CartModel;
@@ -84,6 +85,7 @@ public class Cart extends AppCompatActivity {
             recyclerview_cart.setVisibility(View.GONE);
             no_items_tv.setVisibility(View.VISIBLE);
             Place_order_button.setEnabled(false);
+            Toast.makeText(this, "Your cart is empty!! ", Toast.LENGTH_SHORT).show();
 
 
         } else {
