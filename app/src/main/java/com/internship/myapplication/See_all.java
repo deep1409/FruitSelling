@@ -7,9 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,12 +41,15 @@ public class See_all extends AppCompatActivity {
     TextView itemTypeName;
     Context context;
     List<SeeAllPojo> seeAllPojoList;
+    TextView no_items_tv;
 
     SeeAllAdapter adapter;
     Intent i;
     String s,fruit,veg,url,result,header;
     LoadingAnim loadingAnim;
     ExecutorService executorService1;
+    EditText searchview;
+    String search_url;
 
 
 
@@ -60,6 +66,9 @@ public class See_all extends AppCompatActivity {
         itemTypeName = findViewById(R.id.see_all_item_type_name);
         rv = findViewById(R.id.see_all_recycleview);
         back_arrow = findViewById(R.id.see_all_back_arrow);
+        searchview = findViewById(R.id.searchView);
+        no_items_tv = findViewById(R.id.no_items_tv);
+
 
         loadingAnim = new LoadingAnim(See_all.this);
         executorService1 = Executors.newSingleThreadExecutor();
@@ -71,6 +80,26 @@ public class See_all extends AppCompatActivity {
 //        Toast.makeText(context, ""+s, Toast.LENGTH_SHORT).show();
         Log.d("test", "type: "+s);
         rv.setLayoutManager(new GridLayoutManager(See_all.this, 2));
+
+        searchview.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                search_url = "https://prolonged-lake.000webhostapp.com/FruitSeller/search_view_retrieve.php?item_name="+charSequence+"&item_type="+s;
+                Log.d("TAG",""+search_url);
+                retrieveSearchView();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         rv.setHasFixedSize(true);
         retrieveFromDB();
 
@@ -169,7 +198,6 @@ public class See_all extends AppCompatActivity {
                         p.setItem_price(jsonObject11.getString("item_price"));
                         p.setItem_url(jsonObject11.getString("item_img_url"));
 
-
                         seeAllPojoList.add(p);
 
 
@@ -191,6 +219,70 @@ public class See_all extends AppCompatActivity {
                         adapter = new SeeAllAdapter(See_all.this,seeAllPojoList);
                         rv.setAdapter(adapter);
 
+                    }
+                });
+            }
+        });
+
+    }
+
+
+    public void retrieveSearchView() {
+        //loadingAnim.startLoadingDialog();
+        executorService1.execute(new Runnable() {
+            @Override
+            public void run() {
+                try
+                {
+                    JsonParser o = new JsonParser();
+
+                    result = o.insert(search_url);
+
+                    seeAllPojoList = new ArrayList<>();
+
+                    JSONObject jsonObject = new JSONObject(result);
+
+                    JSONArray jsonArray = jsonObject.getJSONArray("res");
+
+                    Log.v("Login_DATA",""+result);
+
+                    //for fruit
+                    for (int i = 0; i < jsonArray.length(); i++) {
+
+                        JSONObject jsonObject11 = jsonArray.getJSONObject(i);
+                        SeeAllPojo p = new SeeAllPojo();
+
+                        p.setItem_name(jsonObject11.getString("item_name"));
+                        p.setItem_price(jsonObject11.getString("item_price"));
+                        p.setItem_url(jsonObject11.getString("item_img_url"));
+
+                        seeAllPojoList.add(p);
+
+                    }
+
+                }
+                catch ( JSONException e)
+                {
+                    e.printStackTrace();
+                    //  Toast.makeText(Login.this, "Please check your Internet Connection and Retry", Toast.LENGTH_LONG).show();
+                }
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                       // loadingAnim.dismissDialog();
+
+                        if(seeAllPojoList.size() == 0){
+                            no_items_tv.setVisibility(View.VISIBLE);
+                            rv.setVisibility(View.INVISIBLE);
+                        }else{
+                            no_items_tv.setVisibility(View.INVISIBLE);
+                            rv.setVisibility(View.VISIBLE);
+
+                            adapter = new SeeAllAdapter(See_all.this,seeAllPojoList);
+                            rv.setAdapter(adapter);
+                        }
                     }
                 });
             }

@@ -111,23 +111,23 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
         fruit_rv = findViewById(R.id.fruit_recycle_view);
         veg_rv = findViewById(R.id.veg_recycle_view);
 
-        searchView.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                search_url = "https://prolonged-lake.000webhostapp.com/FruitSeller/search_view_retrieve.php?item_name="+charSequence;
-                retrieveFromDB();
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
+//        searchView.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//                search_url = "https://prolonged-lake.000webhostapp.com/FruitSeller/search_view_retrieve.php?item_name="+charSequence;
+//                retrieveFromDB();
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//
+//            }
+//        });
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
