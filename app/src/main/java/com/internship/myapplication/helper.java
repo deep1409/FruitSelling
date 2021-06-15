@@ -20,6 +20,7 @@ public class helper extends SQLiteOpenHelper {
 
     //Table1 columns
     public static String id ="id";
+    public static String item_id = "item_id";
     public static String item_name = "item_name";
     public static String item_price = "item_price";
     public static String item_quantity = "item_quantity";
@@ -30,7 +31,7 @@ public class helper extends SQLiteOpenHelper {
     //version code
     public static int dbversion = 1;
 
-    static  String createquery = "create table "+tbname + "(" + id+ " integer primary key autoincrement," + item_name +" varchar(50)," + item_price +" varchar(10)," + item_quantity +" varchar(50)," + item_img_url + " varchar(500));";
+    static  String createquery = "create table "+tbname + "(" + id+ " integer primary key autoincrement," + item_id +" varchar(50)," + item_name +" varchar(50)," + item_price +" varchar(10)," + item_quantity +" varchar(50)," + item_img_url + " varchar(500));";
 
 
     public helper(Context context) {
@@ -50,9 +51,10 @@ public class helper extends SQLiteOpenHelper {
     }
 
     //insert query for tb 1
-    void insert(String item_name,String item_price,String item_quantity,String item_img_url){
+    void insert(String item_id, String item_name,String item_price,String item_quantity,String item_img_url){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
+        cv.put("item_id",item_id);
         cv.put("item_name",item_name);
         cv.put("item_price",item_price);
         cv.put("item_quantity",item_quantity);
@@ -74,14 +76,16 @@ public class helper extends SQLiteOpenHelper {
         while (c.moveToNext())
         {
             String id = c.getString(0);
-            String item_name = c.getString(1);
-            String item_price = c.getString(2);
-            String item_quantity = c.getString(3);
-            String item_img_url = c.getString(4);
+            String item_id = c.getString(1);
+            String item_name = c.getString(2);
+            String item_price = c.getString(3);
+            String item_quantity = c.getString(4);
+            String item_img_url = c.getString(5);
 //            String item_type = c.getString(5);
 
             CartModel p = new CartModel();
             p.setId(id);
+            p.setItem_id(item_id);
             p.setName(item_name);
             p.setPrice(item_price);
             p.setQuantity(item_quantity);

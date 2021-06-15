@@ -194,6 +194,7 @@ public class See_all extends AppCompatActivity {
                         JSONObject jsonObject11 = jsonArray.getJSONObject(i);
                         SeeAllPojo p = new SeeAllPojo();
 
+                        p.setId(jsonObject11.getString("id"));
                         p.setItem_name(jsonObject11.getString("item_name"));
                         p.setItem_price(jsonObject11.getString("item_price"));
                         p.setItem_url(jsonObject11.getString("item_img_url"));
@@ -252,6 +253,7 @@ public class See_all extends AppCompatActivity {
                         JSONObject jsonObject11 = jsonArray.getJSONObject(i);
                         SeeAllPojo p = new SeeAllPojo();
 
+                        p.setId(jsonObject11.getString("id"));
                         p.setItem_name(jsonObject11.getString("item_name"));
                         p.setItem_price(jsonObject11.getString("item_price"));
                         p.setItem_url(jsonObject11.getString("item_img_url"));

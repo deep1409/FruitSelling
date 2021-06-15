@@ -43,6 +43,7 @@ public class Login extends AppCompatActivity {
     String header;
     LoadingAnim loadingAnim;
     TextInputLayout textInputLayout;
+    String cus_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +117,8 @@ public class Login extends AppCompatActivity {
                                     p.setCustomer_password(jsonObject11.getString("customer_password"));
                                     model.add(p);
 
+                                    cus_id = jsonObject11.getString("customer_id");
+
                                     customer_username = p.getCustomer_email();
                                     customer_password = p.getCustomer_password();
 
@@ -147,6 +150,7 @@ public class Login extends AppCompatActivity {
                                         editor = mSharedPreferences.edit();
                                         editor.putString("email_id",username.getText().toString());
                                         editor.putString("password",password.getText().toString());
+                                        editor.putString("customer_id",cus_id);
                                         editor.commit();
 
                                         mSP.edit().putBoolean("logged",true).apply();

@@ -15,6 +15,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -73,12 +74,18 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
     TextView fruitSeeAll,vegSeeAll;
     Window window;
 
-    String url_fruit,url_vegetable,search_url;
-    String result_url_fruit,result_url_vegetable;
+    String url_fruit,url_vegetable,search_url,cusIdUrl;
+    String result_url_fruit,result_url_vegetable,result_Id;
     String header;
-    ExecutorService executorService1;
+    ExecutorService executorService1,executorServiceID;
     LoadingAnim loadingAnim;
     EditText searchView;
+
+    SharedPreferences sp_cust_id,mSp;
+    String shared_email_id,shared_customer_id;
+    SharedPreferences.Editor editor;
+    String customer_id;
+    Intent i ;
 
 
     @Override
@@ -92,10 +99,21 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
             window.setStatusBarColor(this.getResources().getColor(R.color.white));
         }
 
+//        i = getIntent();
+//        String s = i.getStringExtra("flag");
+        mSp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        shared_customer_id = mSp.getString("customer_id","");
+        shared_email_id = mSp.getString("email_id", "");
+//        Toast.makeText(this, "email: "+shared_email_id+"\ncustomer_id: "+shared_customer_id, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, ""+customer_id, Toast.LENGTH_SHORT).show();
+//        }
+        
+        
         header = getString(R.string.header);
         url_fruit = header + "home_items.php?item_type=0";
         url_vegetable = header + "home_items.php?item_type=1";
-
+        cusIdUrl = header + "user_login.php?customer_email=" +shared_email_id;
+        Log.d("url", "URL: "+cusIdUrl);
         searchView = findViewById(R.id.searchView);
         fruitSeeAll = findViewById(R.id.fruit_see_all);
         vegSeeAll = findViewById(R.id.veg_see_all);
@@ -104,6 +122,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
         setSupportActionBar(toolbar);
 
         executorService1 = Executors.newSingleThreadExecutor();
+        executorServiceID = Executors.newSingleThreadExecutor();
         loadingAnim = new LoadingAnim(Home.this);
 
         imageView = findViewById(R.id.imageView);
@@ -255,18 +274,22 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
                 {
                     JsonParser o = new JsonParser();
                     JsonParser o1 = new JsonParser();
+                    JsonParser js = new JsonParser();
 
                     result_url_fruit = o.insert(url_fruit);
                     result_url_vegetable = o1.insert(url_vegetable);
+                    result_Id = js.insert(cusIdUrl);
 
                     fruit_list = new ArrayList<>();
                     veg_list = new ArrayList<>();
 
                     JSONObject jsonObject = new JSONObject(result_url_fruit);
                     JSONObject jsonObject1 = new JSONObject(result_url_vegetable);
+                    JSONObject jo = new JSONObject(result_Id);
 
                     JSONArray jsonArray = jsonObject.getJSONArray("res");
                     JSONArray jsonArray1 = jsonObject1.getJSONArray("res");
+                    JSONArray ja = jo.getJSONArray("res");
 
                     Log.v("Login_DATA",""+result_url_fruit);
 
@@ -276,6 +299,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
                         JSONObject jsonObject11 = jsonArray.getJSONObject(i);
                         pojoHome p = new pojoHome();
 
+                        p.setId((jsonObject11.getString("id")));
                         p.setItem_name(jsonObject11.getString("item_name"));
                         p.setItem_price(jsonObject11.getString("item_price"));
                         p.setItem_url(jsonObject11.getString("item_img_url"));
@@ -291,11 +315,19 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
                         JSONObject jsonObject12 = jsonArray1.getJSONObject(i);
                         pojoHome1 p = new pojoHome1();
 
+                        p.setId((jsonObject12.getString("id")));
                         p.setItem_name(jsonObject12.getString("item_name"));
                         p.setItem_price(jsonObject12.getString("item_price"));
                         p.setItem_url(jsonObject12.getString("item_img_url"));
 
                         veg_list.add(p);
+                    }
+
+                    for (int i = 0; i <ja.length() ; i++)
+                    {
+                        JSONObject jo1 = ja.getJSONObject(i);
+                        customer_id = jo1.getString("customer_id");
+
                     }
 
                 }
@@ -316,7 +348,10 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
 
                         adp2 = new AdapterHome1(Home.this,veg_list);
                         veg_rv.setAdapter(adp2);
-
+                        Toast.makeText(Home.this, "customer_id: "+customer_id, Toast.LENGTH_SHORT).show();
+                        editor = mSp.edit();
+                        editor.putString("customer_id",customer_id);
+                        editor.apply();
                     }
                 });
             }
@@ -413,6 +448,9 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
             Toast.makeText(getApplicationContext(),"Logout Sucessful",Toast.LENGTH_SHORT).show();
         }
     }
+    
+
+    
 }
 
 

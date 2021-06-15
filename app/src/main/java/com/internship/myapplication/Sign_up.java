@@ -164,6 +164,7 @@ public class Sign_up extends AppCompatActivity {
                         //if(response.equals("Congratulations, your account has been successfully created.")){
                         Toast.makeText(getApplicationContext(),""+response,Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(Sign_up.this,Home.class);
+                        intent.putExtra("flag","1");
                         startActivity(intent);
 
                         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());

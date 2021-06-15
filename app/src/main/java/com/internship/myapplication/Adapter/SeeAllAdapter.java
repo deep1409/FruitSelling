@@ -56,6 +56,7 @@ public class SeeAllAdapter extends RecyclerView.Adapter<SeeAllAdapter.myViewHold
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context.getApplicationContext(), Item_description.class);
+                i.putExtra("id",p.getId());
                 i.putExtra("img",p.getItem_url());
                 i.putExtra("name",p.getItem_name());
                 i.putExtra("price",p.getItem_price());

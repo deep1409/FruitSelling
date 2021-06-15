@@ -21,6 +21,7 @@ public class Item_description extends AppCompatActivity {
     Intent i;
     helper helper;
     int counter = 1;
+    String item_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class Item_description extends AppCompatActivity {
         helper = new helper(Item_description.this);
 
         i = getIntent();
+        item_id = i.getStringExtra("id");
         Picasso.get().load(i.getStringExtra("img")).into(item_img);
         item_name.setText(i.getStringExtra("name"));
         item_price.setText("₹"+i.getStringExtra("price")+"/kg");
@@ -99,7 +101,7 @@ public class Item_description extends AppCompatActivity {
         item_des_order_now.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                helper.insert(item_name.getText().toString(),i.getStringExtra("price"), item_quantity.getText().toString(),i.getStringExtra("img"));
+                helper.insert(item_id,item_name.getText().toString(),i.getStringExtra("price"), item_quantity.getText().toString(),i.getStringExtra("img"));
                 Intent intent = new Intent(Item_description.this,Cart.class);
                 startActivity(intent);
             }
