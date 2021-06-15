@@ -51,6 +51,7 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.MyViewHolder
 
         CartModel p = list.get(position);
         Picasso.get().load(p.getImage()).into(holder.list_img);
+        //
         holder.list_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
