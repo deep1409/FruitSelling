@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".Cart">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.076607384" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.07683215" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout6"
@@ -67,18 +67,19 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <TextView
-            android:id="@+id/grand_quantity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="8dp"
-            android:text="Total Quantity : "
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
-            tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/grand_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="8dp"
+        android:layout_marginStart="25dp"
+        android:text="Total Quantity : "
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
+        tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/grand_total_qty"
@@ -96,34 +97,35 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
             tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/grand_totalt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="8dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp"
-            android:text="Total Amount : "
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toStartOf="@+id/grand_total_amount"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
-            tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/grand_totalt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="8dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:text="Total Amount : "
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/grand_quantity"
+        tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/grand_total_amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="8dp"
-            android:text="₹0"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
-            tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/grand_total_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="₹0"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/grand_totalt"
+        app:layout_constraintTop_toBottomOf="@+id/grand_total_qty"
+        tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Place_order_button"
@@ -172,12 +174,13 @@
         android:id="@+id/recyclerview_cart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="15dp"
         android:paddingHorizontal="20dp"
         app:layout_constraintBottom_toTopOf="@+id/Place_order_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/grand_quantity" />
+        app:layout_constraintTop_toBottomOf="@+id/grand_totalt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

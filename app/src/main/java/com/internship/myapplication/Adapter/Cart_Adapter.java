@@ -29,6 +29,7 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.MyViewHolder
     Context context;
     helper helper;
 
+
     public Cart_Adapter(Context context, List<CartModel> list) {
         this.context = context;
         this.list = list;
@@ -61,7 +62,7 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.MyViewHolder
                     public void onClick(DialogInterface dialogInterface, int i) {
                         helper.delete(p.getId());
 //                        Toast.makeText(context, ""+p.getId(), Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent (context.getApplicationContext(),context.getClass());
+                        Intent intent = new Intent (context.getApplicationContext(),context.getClass()).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         context.startActivity(intent);
                         ((Activity)context).finish();
                     }
@@ -84,6 +85,9 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.MyViewHolder
         int total = Integer.parseInt(p.getPrice())*Integer.parseInt(p.getQuantity());
 
         holder.list_cart_price.setText(""+total);
+
+
+
 
     }
 
