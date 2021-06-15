@@ -76,15 +76,17 @@
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:maxLines="5"
-        android:singleLine="false"
-        android:textColor="@color/black"
-        android:text="jhfdjskl fhusklfa jdblsbfs darshan"
         android:fontFamily="@font/product_sans_regular"
+        android:maxLines="5"
+        android:paddingRight="20dp"
+        android:singleLine="false"
+        android:text="143, Ganga nagar society, Balaji complex, Bhandup-400018, Mumbai."
+        android:textColor="@color/black"
         android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 

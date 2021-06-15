@@ -41,7 +41,6 @@
         android:fontFamily="@font/product_sans_regular"
         android:gravity="center"
         android:text="(50 ₹/kg)"
-
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

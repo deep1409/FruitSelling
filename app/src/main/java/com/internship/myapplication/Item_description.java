@@ -43,8 +43,8 @@ public class Item_description extends AppCompatActivity {
         i = getIntent();
         Picasso.get().load(i.getStringExtra("img")).into(item_img);
         item_name.setText(i.getStringExtra("name"));
-        item_price.setText(i.getStringExtra("price")+" ₹/kg");
-        item_total_price.setText("₹ "+i.getStringExtra("price"));
+        item_price.setText("₹"+i.getStringExtra("price")+"/kg");
+        item_total_price.setText("₹"+i.getStringExtra("price"));
         item_quantity.setText(String.valueOf(counter));
 //        Toast.makeText(this, "name : "+i.getStringExtra("name")+"\n"+"price :"+i.getStringExtra("price"), Toast.LENGTH_SHORT).show();
 
@@ -58,14 +58,14 @@ public class Item_description extends AppCompatActivity {
                     int total = Integer.valueOf(i.getStringExtra("price"));
                     int grant_total = counter*total;
                     String s = String.valueOf(grant_total);
-                    item_total_price.setText(s);
+                    item_total_price.setText("₹"+s);
                 }
                 else {
                     counter++;
                     int total = Integer.valueOf(i.getStringExtra("price"));
                     int grant_total = counter*total;
                     String s = String.valueOf(grant_total);
-                    item_total_price.setText(s);
+                    item_total_price.setText("₹"+s);
                     item_quantity.setText(String.valueOf(counter));
 
                 }
