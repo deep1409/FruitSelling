@@ -70,7 +70,7 @@ public class Cart extends AppCompatActivity {
 
         cart_item = helper.getDataFormliteDB();
 
-        Adapter = new Cart_Adapter(Cart.this,cart_item);
+        Adapter = new Cart_Adapter(Cart.this,cart_item,1);
         recyclerview_cart.setLayoutManager(new LinearLayoutManager(this));
         recyclerview_cart.setAdapter(Adapter);
 

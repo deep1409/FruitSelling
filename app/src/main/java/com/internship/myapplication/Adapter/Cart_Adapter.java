@@ -28,11 +28,13 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.MyViewHolder
     List<CartModel> list;
     Context context;
     helper helper;
+    Integer cart_or_place_order;
 
 
-    public Cart_Adapter(Context context, List<CartModel> list) {
+    public Cart_Adapter(Context context, List<CartModel> list,Integer cart_or_place_order) {
         this.context = context;
         this.list = list;
+        this.cart_or_place_order = cart_or_place_order;
     }
 
     @NonNull
@@ -86,7 +88,11 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.MyViewHolder
 
         holder.list_cart_price.setText(""+total);
 
-
+        if(cart_or_place_order == 0){
+            holder.list_cancel.setVisibility(View.GONE);
+        }else{
+            holder.list_cancel.setVisibility(View.VISIBLE);
+        }
 
 
     }
