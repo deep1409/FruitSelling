@@ -29,6 +29,7 @@ public class Cart extends AppCompatActivity {
     helper helper;
     Integer quantity=0,amount=0;
     TextView grand_total_qty,grand_total_amount;
+    TextView no_items_tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class Cart extends AppCompatActivity {
         recyclerview_cart = findViewById(R.id.recyclerview_cart);
         grand_total_amount = findViewById(R.id.grand_total_amount);
         grand_total_qty = findViewById(R.id.grand_total_qty);
+        no_items_tv = findViewById(R.id.no_items_tv);
 
         helper = new helper(Cart.this);
 
@@ -70,10 +72,6 @@ public class Cart extends AppCompatActivity {
 
         cart_item = helper.getDataFormliteDB();
 
-        Adapter = new Cart_Adapter(Cart.this,cart_item,1);
-        recyclerview_cart.setLayoutManager(new LinearLayoutManager(this));
-        recyclerview_cart.setAdapter(Adapter);
-
         for(int i=0; i<cart_item.size(); i++){
             quantity = quantity + Integer.parseInt(cart_item.get(i).getQuantity());
             int total = Integer.parseInt(cart_item.get(i).getPrice())*Integer.parseInt(cart_item.get(i).getQuantity());
@@ -81,6 +79,24 @@ public class Cart extends AppCompatActivity {
         }
         grand_total_qty.setText(""+quantity);
         grand_total_amount.setText("₹"+amount);
+
+        if (cart_item.size() == 0) {
+            recyclerview_cart.setVisibility(View.GONE);
+            no_items_tv.setVisibility(View.VISIBLE);
+            Place_order_button.setEnabled(false);
+
+
+        } else {
+
+            recyclerview_cart.setVisibility(View.VISIBLE);
+            no_items_tv.setVisibility(View.GONE);
+
+            Adapter = new Cart_Adapter(Cart.this,cart_item,1);
+            recyclerview_cart.setLayoutManager(new LinearLayoutManager(this));
+            recyclerview_cart.setAdapter(Adapter);
+            Place_order_button.setEnabled(true);
+
+        }
 
     }
 
