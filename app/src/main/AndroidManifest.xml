@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FruitSelling">
-        <activity android:name=".invoice"></activity>
+        <activity android:name=".Order_details"></activity>
+        <activity android:name=".invoice" />
         <activity android:name=".MyProfile" />
         <activity android:name=".Orders" />
         <activity

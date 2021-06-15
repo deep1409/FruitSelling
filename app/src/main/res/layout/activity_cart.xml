@@ -27,16 +27,17 @@
                 android:id="@+id/Cart_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/product_sans_bold"
                 android:text="Cart"
                 android:textColor="@color/black"
                 android:textSize="25dp"
-                android:fontFamily="@font/product_sans_bold"
                 android:transitionName="sign_up"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.548"
+                app:layout_constraintVertical_bias="0.533"
                 tools:ignore="MissingConstraints" />
 
             <ImageView
@@ -66,7 +67,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <TextView
         android:id="@+id/grand_quantity"
         android:layout_width="wrap_content"
@@ -91,7 +91,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/product_sans_bold"
+            android:fontFamily="@font/product_sans_regular"
             android:text="0"
             android:textColor="@color/black"
             android:textSize="20dp"
@@ -124,7 +124,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:text="₹0"
-        android:fontFamily="@font/product_sans_bold"
+        android:fontFamily="@font/product_sans_regular"
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintStart_toEndOf="@+id/grand_totalt"

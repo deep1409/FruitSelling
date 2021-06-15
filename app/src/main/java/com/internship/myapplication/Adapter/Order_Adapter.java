@@ -38,15 +38,15 @@ public class Order_Adapter extends RecyclerView.Adapter<Order_Adapter.MyViewHold
     public void onBindViewHolder(@NonNull Order_Adapter.MyViewHolder holder, int position) {
 
         OrderModel p = list.get(position);
-        Picasso.get().load(p.getImage()).into(holder.list_img_1);
-        holder.list_order_name.setText(p.getName().toString());
-        holder.quantity_1.setText(p.getQuantity().toString());
+//        Picasso.get().load(p.getImage()).into(holder.list_img_1);
+          holder.order_id.setText(p.getOrderid().toString());
+//        holder.quantity_1.setText(p.getQuantity().toString());
         holder.status.setText(p.getStatus().toString());
         holder.date.setText(p.getDate().toString());
 
-        int total = Integer.parseInt(p.getPrice())*Integer.parseInt(p.getQuantity());
+//        int total = Integer.parseInt(p.getPrice())*Integer.parseInt(p.getQuantity());
 
-        holder.list_order_price.setText(""+total);
+//        holder.list_order_price.setText(""+total);
     }
 
     @Override
@@ -57,17 +57,18 @@ public class Order_Adapter extends RecyclerView.Adapter<Order_Adapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView list_img_1;
-        TextView list_order_name,list_order_price,quantity_1,status,date;
+        TextView list_order_name,list_order_price,quantity_1,status,date,order_id;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            list_img_1 = itemView.findViewById(R.id.list_img_1);
-            list_order_name = itemView.findViewById(R.id.list_order_name);
+//            list_img_1 = itemView.findViewById(R.id.list_img_1);
+//            list_order_name = itemView.findViewById(R.id.list_order_name);
             list_order_price = itemView.findViewById(R.id.list_order_price);
-            quantity_1 = itemView.findViewById(R.id.quantity_1);
+//            quantity_1 = itemView.findViewById(R.id.quantity_1);
             status = itemView.findViewById(R.id.status);
             date = itemView.findViewById(R.id.date);
+            order_id = itemView.findViewById(R.id.order_id);
 
         }
     }
