@@ -84,7 +84,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
     SharedPreferences sp_cust_id,mSp;
     String shared_email_id,shared_customer_id;
     SharedPreferences.Editor editor;
-    String customer_id;
+    String customer_id,customer_address;
     Intent i ;
 
 
@@ -327,6 +327,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
                     {
                         JSONObject jo1 = ja.getJSONObject(i);
                         customer_id = jo1.getString("customer_id");
+                        customer_address = jo1.getString("customer_address");
 
                     }
 
@@ -351,6 +352,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
                         Toast.makeText(Home.this, "customer_id: "+customer_id, Toast.LENGTH_SHORT).show();
                         editor = mSp.edit();
                         editor.putString("customer_id",customer_id);
+                        editor.putString("customer_address",customer_address);
                         editor.apply();
                     }
                 });

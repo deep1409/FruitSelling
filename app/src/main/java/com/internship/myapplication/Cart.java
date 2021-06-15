@@ -50,7 +50,9 @@ public class Cart extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Cart.this,invoice.class);
+                intent.putExtra("total_price",grand_total_amount.getText().toString());
                 startActivity(intent);
+//                Toast.makeText(Cart.this, ""+grand_total_amount.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
