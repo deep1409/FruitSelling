@@ -40,7 +40,7 @@
                 tools:ignore="MissingConstraints" />
 
             <ImageView
-                android:id="@+id/back_btn_cart"
+                android:id="@+id/back_btn_cart1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

@@ -21,7 +21,7 @@ import java.util.List;
 
 public class Cart extends AppCompatActivity {
 
-    ImageView back_arrow,back_btn_cart;
+    ImageView back_arrow;
     List<CartModel> cart_item;
     Cart_Adapter Adapter;
     RecyclerView recyclerview_cart;
@@ -35,14 +35,21 @@ public class Cart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
         
-        back_arrow = findViewById(R.id.back_btn_cart);
+        back_arrow = findViewById(R.id.back_btn_cart1);
         Place_order_button = findViewById(R.id.Place_order_button);
         recyclerview_cart = findViewById(R.id.recyclerview_cart);
         grand_total_amount = findViewById(R.id.grand_total_amount);
         grand_total_qty = findViewById(R.id.grand_total_qty);
-        back_btn_cart = findViewById(R.id.back_btn_cart);
 
         helper = new helper(Cart.this);
+
+        Place_order_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Cart.this,invoice.class);
+                startActivity(intent);
+            }
+        });
 
         back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override

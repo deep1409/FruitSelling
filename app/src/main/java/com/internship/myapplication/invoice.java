@@ -33,9 +33,12 @@ public class invoice extends AppCompatActivity {
         back_btn_invoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent (invoice.this,Cart.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }
