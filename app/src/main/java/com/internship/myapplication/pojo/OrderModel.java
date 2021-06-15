@@ -1,39 +1,58 @@
 package com.internship.myapplication.pojo;
 
 public class OrderModel {
-    String name,image,quantity,price,status,date;
+    public OrderModel() {
+    }
 
-    public OrderModel(String name, String image, String quantity, String price, String status, String date) {
-        this.name = name;
-        this.image = image;
-        this.quantity = quantity;
+//    String name;
+//    String image;
+//    String quantity;
+    String price;
+    String status;
+    String date;
+    String orderid;
+
+    public OrderModel(String price, String status, String date, String orderid) {
+//        this.name = name;
+//        this.image = image;
+//        this.quantity = quantity;
         this.price = price;
         this.status = status;
         this.date = date;
+        this.orderid = orderid;
     }
 
-    public String getName() {
-        return name;
-    }
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public String getImage() {
+//        return image;
+//    }
+//
+//    public void setImage(String image) {
+//        this.image = image;
+//    }
+//
+//    public String getQuantity() {
+//        return quantity;
+//    }
+//
+//    public void setQuantity(String quantity) {
+//        this.quantity = quantity;
+//    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public String getImage() {
-        return image;
-    }
 
-    public void setImage(String image) {
-        this.image = image;
+    public String getOrderid() {
+        return orderid;
     }
-
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
+    public void setOrderid(String orderid) {
+        this.orderid = orderid;
     }
 
     public String getPrice() {

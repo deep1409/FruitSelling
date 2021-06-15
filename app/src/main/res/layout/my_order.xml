@@ -11,72 +11,174 @@
     android:layout_marginEnd="5sp"
     app:cardCornerRadius="25sp"
     app:cardElevation="5sp"
-    app:cardBackgroundColor="@color/white"
+    app:cardBackgroundColor="@color/splash_statusbar"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/list_img_1"
-            android:layout_width="130sp"
-            android:layout_height="130sp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:gravity="center"
-            android:padding="10dp"
-            android:scaleType="fitXY"
-            android:src="@mipmap/orange"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+<!--        <ImageView-->
+<!--            android:id="@+id/list_img_1"-->
+<!--            android:layout_width="130sp"-->
+<!--            android:layout_height="130sp"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:layout_marginBottom="15dp"-->
+<!--            android:gravity="center"-->
+<!--            android:padding="10dp"-->
+<!--            android:scaleType="fitXY"-->
+<!--            android:src="@mipmap/orange"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.0" />-->
 
-        <TextView
-            android:id="@+id/list_order_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/product_sans_bold"
-            android:gravity="center"
-            android:text="Orange"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            app:layout_constraintStart_toEndOf="@+id/list_img_1"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <TextView-->
+<!--            android:id="@+id/list_order_name"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:fontFamily="@font/product_sans_bold"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Orange"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="22sp"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/list_img_1"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-        <TextView
-            android:id="@+id/price_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Total Price:"
-            android:fontFamily="@font/product_sans_regular"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/list_order_name"
-            app:layout_constraintTop_toBottomOf="@+id/list_order_name" />
+<!--        <TextView-->
+<!--            android:id="@+id/price_1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:text="Total Price:"-->
+<!--            android:fontFamily="@font/product_sans_regular"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/list_order_name"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/list_order_name" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/date"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:text="06-06-2021"-->
+<!--            android:fontFamily="@font/product_sans_regular"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="15sp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/list_order_price"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="4dp"-->
+<!--            android:fontFamily="@font/product_sans_regular"-->
+<!--            android:gravity="center"-->
+<!--            android:text="₹50 kg"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/price_1"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/price_1"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/price_1"-->
+<!--            app:layout_constraintVertical_bias="1.0" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/quantity_order_item"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:text="Quantity:"-->
+<!--            android:fontFamily="@font/product_sans_regular"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/price_1"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/price_1" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/status_order_item"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:text="Status:"-->
+<!--            android:fontFamily="@font/product_sans_regular"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/quantity_order_item"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/quantity_order_item" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/status"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:fontFamily="@font/product_sans_regular"-->
+<!--            android:text="Delivered"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/status_order_item"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/status_order_item"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/status_order_item" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/quantity_1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="4dp"-->
+<!--            android:text="0"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:fontFamily="@font/product_sans_regular"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/quantity_order_item"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/quantity_order_item"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/quantity_order_item" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="2sp"-->
+<!--            android:visibility="invisible"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="parent" />-->
+
 
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:text="06-06-2021"
+            android:layout_marginStart="5dp"
             android:fontFamily="@font/product_sans_regular"
+            android:text="06-06-2021"
             android:textColor="@color/black"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/order_date"
+            app:layout_constraintStart_toEndOf="@+id/order_date"
+            app:layout_constraintTop_toTopOf="@+id/order_date"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/Order_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/product_sans_bold"
+            android:text="Order id:"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/date"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/list_order_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="5dp"
             android:fontFamily="@font/product_sans_regular"
             android:gravity="center"
             android:text="₹50 kg"
@@ -85,66 +187,72 @@
             app:layout_constraintBottom_toBottomOf="@+id/price_1"
             app:layout_constraintStart_toEndOf="@+id/price_1"
             app:layout_constraintTop_toTopOf="@+id/price_1"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <TextView
-            android:id="@+id/quantity_order_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Quantity:"
-            android:fontFamily="@font/product_sans_regular"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/price_1"
-            app:layout_constraintTop_toBottomOf="@+id/price_1" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/status_order_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/product_sans_bold"
             android:text="Status:"
-            android:fontFamily="@font/product_sans_regular"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/quantity_order_item"
-            app:layout_constraintTop_toBottomOf="@+id/quantity_order_item" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/price_1"
+            app:layout_constraintTop_toBottomOf="@+id/price_1" />
 
         <TextView
-            android:id="@+id/status"
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/product_sans_regular"
+                    android:text="Delivered"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/status_order_item"
+                    app:layout_constraintStart_toEndOf="@+id/status_order_item"
+                    app:layout_constraintTop_toTopOf="@+id/status_order_item" />
+
+        <TextView
+            android:id="@+id/price_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/product_sans_bold"
+            android:text="Total Price:"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/order_date"
+            app:layout_constraintTop_toBottomOf="@+id/order_date" />
+
+        <TextView
+            android:id="@+id/order_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/product_sans_bold"
+            android:text="Date:"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/order_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:fontFamily="@font/product_sans_regular"
-            android:text="Delivered"
+            android:text="01"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/status_order_item"
-            app:layout_constraintStart_toEndOf="@+id/status_order_item"
-            app:layout_constraintTop_toTopOf="@+id/status_order_item" />
-
-        <TextView
-            android:id="@+id/quantity_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="0"
-            android:textColor="@color/black"
-            android:fontFamily="@font/product_sans_regular"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/quantity_order_item"
-            app:layout_constraintStart_toEndOf="@+id/quantity_order_item"
-            app:layout_constraintTop_toTopOf="@+id/quantity_order_item" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="2sp"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/Order_id"
+            app:layout_constraintStart_toEndOf="@+id/Order_id"
+            app:layout_constraintTop_toTopOf="@+id/Order_id" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
