@@ -3,7 +3,9 @@ package com.internship.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +24,8 @@ public class Sign_up extends AppCompatActivity {
     Button login_button;
     String sign_up_url,header,authentication_url;
     LoadingAnim loadingAnim;
+    SharedPreferences mSharedPreferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,9 +162,16 @@ public class Sign_up extends AppCompatActivity {
                         loadingAnim.dismissDialog();
                         // do anything with response
                         //if(response.equals("Congratulations, your account has been successfully created.")){
-                            Toast.makeText(getApplicationContext(),""+response,Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(Sign_up.this,Home.class);
-                            startActivity(intent);
+                        Toast.makeText(getApplicationContext(),""+response,Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Sign_up.this,Home.class);
+                        startActivity(intent);
+
+                        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                        editor = mSharedPreferences.edit();
+                        editor.putString("email_id",edt_email.getText().toString());
+                        editor.putString("password",edt_password.getText().toString());
+                        editor.commit();
+
                         //}
                     }
 
