@@ -38,13 +38,13 @@ public class Orders extends AppCompatActivity {
         order_item = new ArrayList<>();
         order_item.add(new OrderModel("Lemon","https://i.ndtvimg.com/mt/cooks/2014-11/lemon.jpg","2","50","Delivered","06-06-2021"));
         order_item.add(new OrderModel("Guava","https://www.santosfood.com/wp-content/uploads/2020/01/4-4.jpg","2","50","Delivered","06-06-2021"));
-        order_item.add(new OrderModel("Custard apple","https://www.parasperfumers.com/upload/product_ecom/Custard-Apple-Seed-Oil.jpg","2","50","Delivered","06-06-2021"));
-        order_item.add(new OrderModel("Watermelon","https://cdn.britannica.com/99/143599-050-C3289491/Watermelon.jpg","2","50","Delivered","06-06-2021"));
-        order_item.add(new OrderModel("Grapes","https://www.aicr.org/wp-content/uploads/2020/01/shutterstock_533487490-640x462.jpg","2","50","Delivered","06-06-2021"));
-        order_item.add(new OrderModel("Apple","https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834","2","50","Delivered","06-06-2021"));
-        order_item.add(new OrderModel("Blackberry","https://4.imimg.com/data4/HR/HD/MY-2312690/blackberry-fruit-500x500.jpg","2","50","Delivered","06-06-2021"));
-        order_item.add(new OrderModel("Orange","https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg","2","50","Delivered","06-06-2021"));
-
+//        order_item.add(new OrderModel("Custard apple","https://www.parasperfumers.com/upload/product_ecom/Custard-Apple-Seed-Oil.jpg","2","50","Delivered","06-06-2021"));
+//        order_item.add(new OrderModel("Watermelon","https://cdn.britannica.com/99/143599-050-C3289491/Watermelon.jpg","2","50","Delivered","06-06-2021"));
+//        order_item.add(new OrderModel("Grapes","https://www.aicr.org/wp-content/uploads/2020/01/shutterstock_533487490-640x462.jpg","2","50","Delivered","06-06-2021"));
+//        order_item.add(new OrderModel("Apple","https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834","2","50","Delivered","06-06-2021"));
+//        order_item.add(new OrderModel("Blackberry","https://4.imimg.com/data4/HR/HD/MY-2312690/blackberry-fruit-500x500.jpg","2","50","Delivered","06-06-2021"));
+//        order_item.add(new OrderModel("Orange","https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg","2","50","Delivered","06-06-2021"));
+//
         Adapter = new Order_Adapter(Orders.this,order_item);
         recyclerview_order.setLayoutManager(new LinearLayoutManager(this));
         recyclerview_order.setAdapter(Adapter);
