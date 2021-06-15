@@ -15,6 +15,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.StringRequestListener;
 import com.google.android.material.textfield.TextInputLayout;
 import com.internship.myapplication.Adapter.AdapterHome;
 import com.internship.myapplication.Adapter.AdapterHome1;
@@ -42,8 +46,10 @@ public class MyProfile extends AppCompatActivity {
     String shared_email_id;
     String resultt, header, url;
     ExecutorService executorService;
-    LoadingAnim loadingAnim;
+    LoadingAnim loadingAnim,loadingAnimUpdate;
     List<Profile_Pojo> pp;
+
+    String update_url;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +64,7 @@ public class MyProfile extends AppCompatActivity {
             Log.d("MyProfile", "Exeption: "+e);
         }
         url = header + "retrieve_my_profile.php?customer_email=" + shared_email_id;
+        update_url = header + "update_my_profile.php";
         Log.d("uu", "onCreate: "+url);
 
         Toast.makeText(this, ""+shared_email_id, Toast.LENGTH_SHORT).show();
@@ -79,6 +86,7 @@ public class MyProfile extends AppCompatActivity {
         edt_profile_zip_code = findViewById(R.id.profile_zipcode);
 
         loadingAnim = new LoadingAnim(MyProfile.this);
+        loadingAnimUpdate = new LoadingAnim(MyProfile.this);
         getdata();
         //edt_profile_name.setText("Darshan");
         edt_profile_name.setFocusableInTouchMode(false);
@@ -95,7 +103,9 @@ public class MyProfile extends AppCompatActivity {
                 my_profile_done.setVisibility(View.VISIBLE);
                 my_profile_close_edit.setVisibility(View.VISIBLE);
                 my_profile_edit.setVisibility(View.GONE);
+                back_arrow.setVisibility(View.GONE);
                 edt_profile_name.setFocusableInTouchMode(true);
+
 
 
                 edt_profile_contact_no.setFocusableInTouchMode(true);
@@ -132,6 +142,13 @@ public class MyProfile extends AppCompatActivity {
                         edt_profile_address.setFocusableInTouchMode(false);
                         edt_profile_city.setFocusableInTouchMode(false);
                         edt_profile_zip_code.setFocusableInTouchMode(false);
+
+                        edt_profile_name.clearFocus();
+                        edt_profile_contact_no.clearFocus();
+                        edt_profile_address.clearFocus();
+                        edt_profile_city.clearFocus();
+                        edt_profile_zip_code.clearFocus();
+
                     }
                 });
                 ab.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -148,21 +165,24 @@ public class MyProfile extends AppCompatActivity {
         my_profile_done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edt_profile_name.setFocusableInTouchMode(false);
-
-                edt_profile_contact_no.setFocusableInTouchMode(false);
-                edt_profile_address.setFocusableInTouchMode(false);
-                edt_profile_city.setFocusableInTouchMode(false);
-                edt_profile_zip_code.setFocusableInTouchMode(false);
+                loadingAnimUpdate.startLoadingDialog();
+                postData();
+//                edt_profile_name.setFocusableInTouchMode(false);
+//
+//                edt_profile_contact_no.setFocusableInTouchMode(false);
+//                edt_profile_address.setFocusableInTouchMode(false);
+//                edt_profile_city.setFocusableInTouchMode(false);
+//                edt_profile_zip_code.setFocusableInTouchMode(false);
                 my_profile_edit.setVisibility(View.VISIBLE);
                 my_profile_done.setVisibility(View.GONE);
+                my_profile_close_edit.setVisibility(View.GONE);
 
-                edt_profile_name.setFocusable(false);
-
-                edt_profile_contact_no.setFocusable(false);
-                edt_profile_address.setFocusable(false);
-                edt_profile_city.setFocusable(false);
-                edt_profile_zip_code.setFocusable(false);
+//                edt_profile_name.setFocusable(false);
+//
+//                edt_profile_contact_no.setFocusable(false);
+//                edt_profile_address.setFocusable(false);
+//                edt_profile_city.setFocusable(false);
+//                edt_profile_zip_code.setFocusable(false);
             }
         });
 
@@ -220,5 +240,45 @@ public class MyProfile extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    public void postData() {
+        AndroidNetworking.post(update_url)
+                .addQueryParameter("customer_email", shared_email_id)
+                .addQueryParameter("customer_contact_number", edt_profile_contact_no.getText().toString())
+                .addQueryParameter("customer_name", edt_profile_name.getText().toString())
+                .addQueryParameter("customer_address", edt_profile_address.getText().toString())
+                .addQueryParameter("customer_city", edt_profile_city.getText().toString())
+                .addQueryParameter("customer_pincode", edt_profile_zip_code.getText().toString())
+                .setTag("test")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsString(new StringRequestListener() {
+                    @Override
+                    public void onResponse(String response) {
+//                        Log.d("Test", "onResponse: "+sign_up_url+"?customer_email="+edt_email.getText().toString()+"&customer_password="+edt_password.getText().toString()+"&customer_contact_number="+edt_contact.getText().toString()+"&customer_name="+edt_name.getText().toString()+"&customer_address="+edt_address.getText().toString()+"&customer_city="+edt_city.getText().toString()+"&customer_pincode="+edt_address_zipcode.getText().toString());
+                        loadingAnim.dismissDialog();
+                        // do anything with response
+                        //if(response.equals("Congratulations, your account has been successfully created.")){
+                        Toast.makeText(getApplicationContext(),""+response,Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MyProfile.this,MyProfile.class);
+                        startActivity(intent);
+                        finish();
+
+//                        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+//                        editor = mSharedPreferences.edit();
+//                        editor.putString("email_id",edt_email.getText().toString());
+//                        editor.putString("password",edt_password.getText().toString());
+//                        editor.commit();
+
+                        //}
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        loadingAnim.dismissDialog();
+                        Toast.makeText(MyProfile.this, ""+anError, Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
