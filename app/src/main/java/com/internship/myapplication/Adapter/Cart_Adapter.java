@@ -87,7 +87,7 @@ public class Cart_Adapter extends RecyclerView.Adapter<Cart_Adapter.MyViewHolder
 
         int total = Integer.parseInt(p.getPrice())*Integer.parseInt(p.getQuantity());
 
-        holder.list_cart_price.setText(""+total);
+        holder.list_cart_price.setText("₹" + total);
 
         if(cart_or_place_order == 0){
             holder.list_cancel.setVisibility(View.GONE);

@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/product_sans_bold"
-        android:text="Items in your bag:"
+        android:text="Items you bought:"
         android:textColor="@color/black"
         android:textSize="22dp"
         app:layout_constraintStart_toStartOf="@+id/guideline4"

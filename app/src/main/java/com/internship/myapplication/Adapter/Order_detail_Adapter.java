@@ -40,7 +40,7 @@ public class Order_detail_Adapter extends RecyclerView.Adapter<Order_detail_Adap
 
         Order_detail_pojo p = list.get(position);
         holder.item_id.setText(p.getItem_id());
-        holder.item_price.setText(p.getItem_prize());
+        holder.item_price.setText("₹"+p.getItem_prize());
         holder.item_quantity.setText(p.getItem_quantity());
         Log.d("item_id", "Item_id: "+p.getItem_id()+"\n item_price: "+p.getItem_prize()+"\n item_quantity: "+p.getItem_quantity());
     }
