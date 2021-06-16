@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -23,6 +25,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Orders extends AppCompatActivity {
     ImageView back_arrow;
@@ -30,9 +33,12 @@ public class Orders extends AppCompatActivity {
     Order_Adapter Adapter;
     RecyclerView recyclerview_order;
     LoadingAnim loadingAnim;
-    String result,url;
+    String result,url,header;
     Order_Adapter adapter;
-    ExecutorService executorService2;
+    SharedPreferences sp;
+    ExecutorService executorService2 = Executors.newSingleThreadExecutor();
+    Intent i;
+    String customer_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,14 @@ public class Orders extends AppCompatActivity {
         setContentView(R.layout.activity_orders);
         back_arrow = findViewById(R.id.back_btn_cart);
         recyclerview_order = findViewById(R.id.recyclerview_order);
+        loadingAnim = new LoadingAnim(Orders.this);
+
+        sp = PreferenceManager.getDefaultSharedPreferences(Orders.this);
+
+        i = getIntent();
+        customer_id = sp.getString("customer_id","");
+        header = getString(R.string.header);
+        url = header + "retrieve_order_master.php?customer_id="+customer_id;
 
         back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,8 +63,8 @@ public class Orders extends AppCompatActivity {
         });
 
         order_item = new ArrayList<>();
-        order_item.add(new OrderModel("20","Undelivered","15-06-2021","01"));
-        order_item.add(new OrderModel("30","Undelivered","15-06-2021","02"));
+//        order_item.add(new OrderModel("20","Undelivered","15-06-2021","01"));
+//        order_item.add(new OrderModel("30","Undelivered","15-06-2021","02"));
 //        order_item.add(new OrderModel("Custard apple","https://www.parasperfumers.com/upload/product_ecom/Custard-Apple-Seed-Oil.jpg","2","50","Delivered","06-06-2021"));
 //        order_item.add(new OrderModel("Watermelon","https://cdn.britannica.com/99/143599-050-C3289491/Watermelon.jpg","2","50","Delivered","06-06-2021"));
 //        order_item.add(new OrderModel("Grapes","https://www.aicr.org/wp-content/uploads/2020/01/shutterstock_533487490-640x462.jpg","2","50","Delivered","06-06-2021"));
@@ -58,7 +72,7 @@ public class Orders extends AppCompatActivity {
 //        order_item.add(new OrderModel("Blackberry","https://4.imimg.com/data4/HR/HD/MY-2312690/blackberry-fruit-500x500.jpg","2","50","Delivered","06-06-2021"));
 //        order_item.add(new OrderModel("Orange","https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg","2","50","Delivered","06-06-2021"));
 //
-
+        retrieveFromDB();
 
         Adapter = new Order_Adapter(Orders.this,order_item);
         recyclerview_order.setLayoutManager(new LinearLayoutManager(this));
@@ -93,7 +107,7 @@ public class Orders extends AppCompatActivity {
 
                         p.setOrderid(jsonObject11.getString("order_id"));
                         p.setDate(jsonObject11.getString("order_date"));
-                        p.setPrice(jsonObject11.getString("order_price"));
+                        p.setPrice(jsonObject11.getString("total_price"));
                         p.setStatus(jsonObject11.getString("order_status"));
 
                         order_item.add(p);

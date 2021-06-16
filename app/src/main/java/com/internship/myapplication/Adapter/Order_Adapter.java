@@ -1,15 +1,18 @@
 package com.internship.myapplication.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.internship.myapplication.Order_details;
 import com.internship.myapplication.R;
 import com.internship.myapplication.pojo.OrderModel;
 import com.internship.myapplication.pojo.OrderModel;
@@ -43,7 +46,16 @@ public class Order_Adapter extends RecyclerView.Adapter<Order_Adapter.MyViewHold
 //        holder.quantity_1.setText(p.getQuantity().toString());
         holder.status.setText(p.getStatus().toString());
         holder.date.setText(p.getDate().toString());
-
+        holder.list_order_price.setText("₹"+p.getPrice().toString());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent( context.getApplicationContext(), Order_details.class);
+                intent.putExtra("order_id",p.getOrderid());
+                context.startActivity(intent);
+                Toast.makeText(context.getApplicationContext(), ""+p.getOrderid(), Toast.LENGTH_SHORT).show();
+            }
+        });
 //        int total = Integer.parseInt(p.getPrice())*Integer.parseInt(p.getQuantity());
 
 //        holder.list_order_price.setText(""+total);

@@ -100,7 +100,9 @@ public class invoice extends AppCompatActivity {
             public void onClick(View view) {
                 postData();
                 loading.dismissDialog();
+
                 Intent intent =new Intent(invoice.this,Orders.class);
+                intent.putExtra("customer_id",customer_id);
                 startActivity(intent);
                 Toast.makeText(invoice.this, "Thank you for your Purchase", Toast.LENGTH_SHORT).show();
             }
