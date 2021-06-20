@@ -199,6 +199,8 @@ public class invoice extends AppCompatActivity {
             AndroidNetworking.post(orderDetailsURL)
                     .addBodyParameter("order_id",order_master_id)
                     .addBodyParameter("item_id",cart_item.get(cart_item.indexOf(e)).getItem_id())
+                    .addBodyParameter("item_name",cart_item.get(cart_item.indexOf(e)).getName())
+                    .addBodyParameter("item_url",cart_item.get(cart_item.indexOf(e)).getImage())
                     .addBodyParameter("item_quantity",cart_item.get(cart_item.indexOf(e)).getQuantity())
                     .addBodyParameter("item_prize",cart_item.get(cart_item.indexOf(e)).getPrice())
                     .setTag("Test")

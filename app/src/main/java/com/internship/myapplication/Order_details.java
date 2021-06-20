@@ -88,6 +88,8 @@ public class Order_details extends AppCompatActivity {
                         p.setItem_id(jsonObject11.getString("item_id"));
                         p.setItem_quantity(jsonObject11.getString("item_quantity"));
                         p.setItem_prize(jsonObject11.getString("item_prize"));
+                        p.setItem_name(jsonObject11.getString("item_name"));
+                        p.setItem_url(jsonObject11.getString("item_url"));
 
                         order_details.add(p);
 

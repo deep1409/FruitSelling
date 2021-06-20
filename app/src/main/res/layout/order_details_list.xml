@@ -17,8 +17,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingVertical="15dp"
-        >
+        android:paddingVertical="15dp">
 
         <TextView
             android:id="@+id/item_id"
@@ -53,13 +52,11 @@
             android:id="@+id/item_price_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/product_sans_bold"
             android:text="Item Price:"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/price_1"
             app:layout_constraintTop_toBottomOf="@+id/price_1" />
 
@@ -80,7 +77,7 @@
             android:id="@+id/price_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/product_sans_bold"
             android:text="Item quantity:"
             android:textColor="@color/black"
@@ -92,15 +89,39 @@
             android:id="@+id/item_id_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/product_sans_bold"
             android:text="Item id:"
             android:textColor="@color/black"
             android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/item_name"
+            app:layout_constraintTop_toBottomOf="@+id/item_name" />
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/product_sans_regular"
+            android:text="Orange"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/item_url"
+            app:layout_constraintTop_toTopOf="@+id/item_url" />
+
+        <ImageView
+            android:id="@+id/item_url"
+            android:layout_width="130sp"
+            android:layout_height="130sp"
+            android:layout_marginStart="16dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/orange"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

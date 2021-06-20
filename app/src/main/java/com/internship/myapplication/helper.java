@@ -81,7 +81,7 @@ public class helper extends SQLiteOpenHelper {
             String item_price = c.getString(3);
             String item_quantity = c.getString(4);
             String item_img_url = c.getString(5);
-//            String item_type = c.getString(5);
+//          String item_type = c.getString(5);
 
             CartModel p = new CartModel();
             p.setId(id);
