@@ -349,7 +349,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
 
                         adp2 = new AdapterHome1(Home.this,veg_list);
                         veg_rv.setAdapter(adp2);
-                        Toast.makeText(Home.this, "customer_id: "+customer_id, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Home.this, "customer_id: "+customer_id, Toast.LENGTH_SHORT).show();
                         editor = mSp.edit();
                         editor.putString("customer_id",customer_id);
                         editor.putString("customer_address",customer_address);
@@ -432,7 +432,7 @@ public class Home extends AppCompatActivity implements Drawer_Adapter.OnItemSele
 //        }
         if(position == POS_MY_PROFILE){
             startActivity(new Intent(Home.this,MyProfile.class));
-            Toast.makeText(getApplicationContext(),"My profile",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),"My profile",Toast.LENGTH_SHORT).show();
         }
         if(position == POS_MY_CART){
             Intent intent = new Intent(Home.this,Cart.class);

@@ -56,7 +56,8 @@ public class Order_detail_Adapter extends RecyclerView.Adapter<Order_detail_Adap
 
     public class MyViewholder extends RecyclerView.ViewHolder {
         TextView item_id,item_quantity,item_price,item_name;
-        ImageView item_url;
+        ImageView item_url,back_btn;
+
         public MyViewholder(@NonNull View itemView) {
             super(itemView);
             item_id = itemView.findViewById(R.id.item_id);

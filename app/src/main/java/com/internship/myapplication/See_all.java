@@ -42,7 +42,6 @@ public class See_all extends AppCompatActivity {
     Context context;
     List<SeeAllPojo> seeAllPojoList;
     TextView no_items_tv;
-
     SeeAllAdapter adapter;
     Intent i;
     String s,fruit,veg,url,result,header;
@@ -89,7 +88,7 @@ public class See_all extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                search_url = "https://prolonged-lake.000webhostapp.com/FruitSeller/search_view_retrieve.php?item_name="+charSequence+"&item_type="+s;
+                search_url = header + "search_view_retrieve.php?item_name="+charSequence+"&item_type="+s;
                 Log.d("TAG",""+search_url);
                 retrieveSearchView();
             }

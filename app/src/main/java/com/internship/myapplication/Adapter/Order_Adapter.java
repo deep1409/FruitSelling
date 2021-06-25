@@ -53,7 +53,7 @@ public class Order_Adapter extends RecyclerView.Adapter<Order_Adapter.MyViewHold
                 Intent intent = new Intent( context.getApplicationContext(), Order_details.class);
                 intent.putExtra("order_id",p.getOrderid());
                 context.startActivity(intent);
-                Toast.makeText(context.getApplicationContext(), ""+p.getOrderid(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context.getApplicationContext(), ""+p.getOrderid(), Toast.LENGTH_SHORT).show();
             }
         });
 //        int total = Integer.parseInt(p.getPrice())*Integer.parseInt(p.getQuantity());

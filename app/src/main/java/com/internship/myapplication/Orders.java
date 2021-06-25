@@ -59,6 +59,7 @@ public class Orders extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed();
+                finish();
             }
         });
 
@@ -141,8 +142,8 @@ public class Orders extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(Orders.this,Home.class);
-        startActivity(intent);
+
+        finish();
     }
 }
 

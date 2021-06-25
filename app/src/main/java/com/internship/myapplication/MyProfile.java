@@ -67,7 +67,7 @@ public class MyProfile extends AppCompatActivity {
         update_url = header + "update_my_profile.php";
         Log.d("uu", "onCreate: "+url);
 
-        Toast.makeText(this, ""+shared_email_id, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, ""+shared_email_id, Toast.LENGTH_SHORT).show();
 
         back_arrow = findViewById(R.id.my_profile_back_arrow);
         my_profile_edit = findViewById(R.id.my_profile_edit);

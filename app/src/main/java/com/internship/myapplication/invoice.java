@@ -159,7 +159,7 @@ public class invoice extends AppCompatActivity {
                     @Override
                     public void run() {
                         loading.dismissDialog();
-                        Toast.makeText(invoice.this, ""+customer_address, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(invoice.this, ""+customer_address, Toast.LENGTH_SHORT).show();
                         address.setText(customer_address);
                     }
                 });

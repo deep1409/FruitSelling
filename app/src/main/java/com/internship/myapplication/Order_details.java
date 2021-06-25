@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.internship.myapplication.Adapter.Order_Adapter;
@@ -33,6 +35,7 @@ public class Order_details extends AppCompatActivity {
     String order_id;
     LoadingAnim loadingAnim;
     ExecutorService executorService;
+    ImageView back_btn;
 
 
     @Override
@@ -40,7 +43,7 @@ public class Order_details extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_details);
         recyclerView = findViewById(R.id.recyclerView);
-
+        back_btn = findViewById(R.id.back_btn_order_detail);
 
         i = getIntent();
         order_id = i.getStringExtra("order_id");
@@ -58,7 +61,17 @@ public class Order_details extends AppCompatActivity {
         order_detail_adapter = new Order_detail_Adapter(Order_details.this,order_details);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(order_detail_adapter);
+
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+                finish();
+            }
+        });
     }
+
 
     public void retrieveFromDB() {
         loadingAnim.startLoadingDialog();
@@ -73,31 +86,31 @@ public class Order_details extends AppCompatActivity {
 
                     order_details = new ArrayList<>();
 
-                    JSONObject jsonObject = new JSONObject(result);
+//                    JSONObject jsonObject = new JSONObject(result);
+//
+//                    JSONArray jsonArray = jsonObject.getJSONArray("res");
 
-                    JSONArray jsonArray = jsonObject.getJSONArray("res");
-
-                    Log.v("Login_DATA",""+result);
+                    Log.v("order_details_log",""+result);
 
                     //for fruit
-                    for (int i = 0; i < jsonArray.length(); i++) {
-
-                        JSONObject jsonObject11 = jsonArray.getJSONObject(i);
-                        Order_detail_pojo p = new Order_detail_pojo();
-
-                        p.setItem_id(jsonObject11.getString("item_id"));
-                        p.setItem_quantity(jsonObject11.getString("item_quantity"));
-                        p.setItem_prize(jsonObject11.getString("item_prize"));
-                        p.setItem_name(jsonObject11.getString("item_name"));
-                        p.setItem_url(jsonObject11.getString("item_url"));
-
-                        order_details.add(p);
-
-
-                    }
+//                    for (int i = 0; i < jsonArray.length(); i++) {
+//
+//                        JSONObject jsonObject11 = jsonArray.getJSONObject(i);
+//                        Order_detail_pojo p = new Order_detail_pojo();
+//
+//                        p.setItem_id(jsonObject11.getString("item_id"));
+//                        p.setItem_quantity(jsonObject11.getString("item_quantity"));
+//                        p.setItem_prize(jsonObject11.getString("item_prize"));
+//                        p.setItem_name(jsonObject11.getString("item_name"));
+//                        p.setItem_url(jsonObject11.getString("item_url"));
+//
+//                        order_details.add(p);
+//
+//
+//                    }
 
                 }
-                catch ( JSONException e)
+                catch ( Exception e)
                 {
                     e.printStackTrace();
                     //  Toast.makeText(Login.this, "Please check your Internet Connection and Retry", Toast.LENGTH_LONG).show();
