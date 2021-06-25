@@ -182,7 +182,9 @@ public class invoice extends AppCompatActivity {
                 .getAsString(new StringRequestListener() {
                     @Override
                     public void onResponse(String response) {
-                        order_master_id = response;
+                        Log.d("invoice", "onResponse:--"+response+"--"+response.trim()+"--");
+                        order_master_id = response.trim();
+
                         postOrderDetails();
                     }
 

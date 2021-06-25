@@ -86,28 +86,28 @@ public class Order_details extends AppCompatActivity {
 
                     order_details = new ArrayList<>();
 
-//                    JSONObject jsonObject = new JSONObject(result);
-//
-//                    JSONArray jsonArray = jsonObject.getJSONArray("res");
+                    JSONObject jsonObject = new JSONObject(result);
+
+                    JSONArray jsonArray = jsonObject.getJSONArray("res");
 
                     Log.v("order_details_log",""+result);
 
                     //for fruit
-//                    for (int i = 0; i < jsonArray.length(); i++) {
-//
-//                        JSONObject jsonObject11 = jsonArray.getJSONObject(i);
-//                        Order_detail_pojo p = new Order_detail_pojo();
-//
-//                        p.setItem_id(jsonObject11.getString("item_id"));
-//                        p.setItem_quantity(jsonObject11.getString("item_quantity"));
-//                        p.setItem_prize(jsonObject11.getString("item_prize"));
-//                        p.setItem_name(jsonObject11.getString("item_name"));
-//                        p.setItem_url(jsonObject11.getString("item_url"));
-//
-//                        order_details.add(p);
-//
-//
-//                    }
+                    for (int i = 0; i < jsonArray.length(); i++) {
+
+                        JSONObject jsonObject11 = jsonArray.getJSONObject(i);
+                        Order_detail_pojo p = new Order_detail_pojo();
+
+                        p.setItem_id(jsonObject11.getString("item_id"));
+                        p.setItem_quantity(jsonObject11.getString("item_quantity"));
+                        p.setItem_prize(jsonObject11.getString("item_prize"));
+                        p.setItem_name(jsonObject11.getString("item_name"));
+                        p.setItem_url(jsonObject11.getString("item_url"));
+
+                        order_details.add(p);
+
+
+                    }
 
                 }
                 catch ( Exception e)
